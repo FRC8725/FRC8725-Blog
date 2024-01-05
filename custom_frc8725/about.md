@@ -153,7 +153,7 @@
 		margin: calc(1*var(--mh)) calc(2*var(--mw));
 		color: black;
 		text-align: center;
-		font-size: calc(1.8*var(--mw));
+		font-size: calc(2.0*var(--mw));
 		font-weight: bold;
 	}
 	#aboutContent .cardBox > .card > p {

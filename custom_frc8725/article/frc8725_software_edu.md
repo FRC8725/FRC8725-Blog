@@ -326,7 +326,9 @@ public class RobotContainer {
 #### 使用 Windows 批次檔
 1. 在隨意路徑下創建一個資料夾
 2. 創建並編輯兩個bat檔，負責開和關防火牆
+
 開啟防火牆：`netsh advfirewall set allprofile state on`
+
 關閉防火牆：`netsh advfirewall set allprofile state off`
 
 ![](image/articleImage/frc8725_software_edu_image6.wm.png)
