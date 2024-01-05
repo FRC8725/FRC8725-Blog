@@ -1,50 +1,22 @@
-<!-- title: FRC8725 軟體培訓教學 -->
-<!-- description: 如何讓機器人動起來 -->
+<!-- title: FRC8725 軟體培訓教學 - 程式撰寫 -->
+<!-- description: 類比搖桿控制單一馬達 -->
 <!-- category: programming -->
 <!-- tags: FRC8725 -->
-<!-- published time: 2023/09/08 -->
+<!-- published time: 2023/09/10 -->
 <!-- cover: <?=customDirPath?>/image/articleCover/frc8725_software_edu_cover.jpg -->
-
-# 安裝環境
-## WPILib 安裝
-會附上 Vscode
-
-搜尋 wpilib+年分 或是前往 [WPILib Installation Guide](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html) 下載符合自己作業系統的檔案
-
-完成下載後 
-1. 開啟 iso 檔
-2. 執行 `WPIlibInstaller.exe` -> `其他資訊` -> `仍要執行`
-3. 跟著 Inastaller 的指示做
-
-安裝類型選擇 `Download for this computer only(fastest)`
-
-API Docs 
-[Java](https://github.wpilib.org/allwpilib/docs/release/java/index.html) 
-[C++](https://github.wpilib.org/allwpilib/docs/release/cpp/index.html)
-
-## Frc game tools(NI) 安裝
-包含 Roborio Imaging 以及 Driver Station
-
-搜尋 FRC game tools 加年分或是前往 [FRC Game Tools Download](https://www.ni.com/zh-tw/support/downloads/drivers/download.frc-game-tools.html#479842) 選擇當年度的工具
-(若原本已經有 FRC game tools 的只需要安裝新檔即可，更新時會自動覆蓋)
-
-## 刷機用程式安裝
-[CTRE phoenix](https://store.ctr-electronics.com/software/)
-
-[REV Hardware Client](https://docs.revrobotics.com/rev-hardware-client/)
 
 # 程式撰寫
 ## 建立新專案
 1. 在安裝 WPILIB 的 Vscode 中，按下 F1 鍵，使指令區出現於上方
 2. 在指令區中輸入 `` > WPILib: Create a new project ``
 3. 填寫以下資訊
-    1. 輸入 Example (範例程式) 或 Template (只提供模板) `[Template]`
-    2. 選擇程式語言 (java或cpp) `[Java]`
-    3. 選擇專案控制方式 (Time Robot、 Command Robot等) `[Command Robot]`
+    1. 輸入 Example (範例程式) 或 Template (只提供模板) `Template`
+    2. 選擇程式語言 (java或cpp) `Java`
+    3. 選擇專案控制方式 (Time Robot、 Command Robot等) `Command Robot`
     4. 選擇存檔位置
     5. 專案名稱
-    6. 是否以資料夾方式儲存? `[勾選]`
-    7. 輸入隊號 `[8725]`
+    6. 是否以資料夾方式儲存? `勾選`
+    7. 輸入隊號 `8725`
     8. 確認第三方軟件是否全部支援 WPILib 的相關物件(由於可能有部分軟件無法支援，會造成崩潰，因此此區<span style="color: #e06c53">請勿勾選</span>)
 
 4. 確認資訊無誤後，點選 `Generate Project` 選擇 `Yes（New Window）`
@@ -205,7 +177,9 @@ public class DriveMotorSubsystem extends SubsystemBase {
 }
 ```
 
-### Talon 馬達 (Falcon)
+### TalonFX 馬達
+又或者是 Falcon 馬達
+
 1. 於 `src\main\java\frc\robot\subsystems` 創建 DriveMotorSubsystem.java 用於控制馬達
 2. 引入函式庫
 
@@ -229,8 +203,10 @@ public class DriveMotorSubsystem extends SubsystemBase {
 
     public DriveMotorSubsystem() {
         this.motor = new TalonFX(robotMap.Talon.motor);
-        this.motor.enableVoltageCompensation(true);
+        this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
         this.motor.configVoltageCompSaturation(30);
+        // 電壓輸出百分比，例：設定為12V時，若馬達輸出50%動力，將嘗試產生6V
+        
         this.motor.setInverted(false); // 是否反轉
         this.motor.setNeutralMode(NeutralMode.Brake); // kBrake 停止後鎖住馬達, kCoast 停止後保持慣性
     }
@@ -338,24 +314,32 @@ public class RobotContainer {
 
 ## 上傳程式
 1. 確定無報錯
-2. <span style="color: #ff5555">CAN 接線無誤 </span>， Roborio 連接正常
+2. **<span style="color: #ff5555">CAN 接線無誤 </span>**， Roborio 連接正常
 3. 關閉防火牆
-4. Shift + F5 上傳程式，出現 <span style="color: #6ce26c">BUILD SUCCESSFUL </span> 代表上傳完成
+4. **Shift + F5** 上傳程式，出現 <span style="color: #6ce26c">BUILD SUCCESSFUL </span> 代表上傳完成
 5. 連接搖桿進行測試
 
 
 ### 關閉防火牆
 在上傳程式碼或操控 Roborio 時才需要
 
+#### 使用 Windows 批次檔
+1. 在隨意路徑下創建一個資料夾
+2. 創建並編輯兩個bat檔，負責開和關防火牆
+開啟防火牆：`netsh advfirewall set allprofile state on`
+關閉防火牆：`netsh advfirewall set allprofile state off`
+
+![](image/articleImage/frc8725_software_edu_image6.wm.png)
+
+#### 使用 Windows Defender 防火牆內容
+
 1. 按下 windows建，尋找「具有進階安全性的 Windows 防火牆」
-2. 點擊最下方的「Windows Defender 防火牆內容」
-3. 接著會進入下圖介面，上方有三個設定檔
-「網域設定檔、私人設定檔、公用設定檔」 將三個設定檔的「防火牆狀態」調整為關閉，三區皆調整完後按下「確定」
+
+![](image/articleImage/frc8725_software_edu_image7.wm.png)
+
+2. 點擊 `Windows Defender 防火牆內容`
+3. 將「網域設定檔、私人設定檔、公用設定檔」的「防火牆狀態」調整為關閉，三區皆調整完後按下「確定」
 
 ![](image/articleImage/frc8725_software_edu_image1.wm.png)
-
-4. 當畫面顯示改變如下即設定成功
-
-![](image/articleImage/frc8725_software_edu_image2.wm.png)
 
 ⚠️<span style="color: #e06c53">請注意!! 為了保護電腦的安全，務必在結束活動、使用完畢後，將防火牆設定用上述設定方式再度開啟。</span>

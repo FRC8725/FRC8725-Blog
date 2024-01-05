@@ -254,12 +254,13 @@
 			--gapX: 2%;
 			--gapY: 10%;
 			gap: var(--gapY) var(--gapX);
-			width: calc((100% - 4*var(--mw)*3)*0.8);
-			height: calc((100% - 4*var(--mw)*2)*0.9);
-			position: absolute;
+			width: calc((100% - 4*var(--mw)*3)*1.15);
+			height: calc((100% - 4*var(--mw)*2)*1.2);
+			/* position: absolute; */
 			bottom: calc(4*var(--mw));
 			right: calc(4*var(--mw));
 			box-sizing: border-box;
+			transform: translateY(7%);
 		}
 		#aboutContent .cardBox > .card {
 			width: calc((100% - var(--gapX)*3)/4);

@@ -196,7 +196,7 @@ header > * {
 #tabs {
 	--tabsAmount: 3;
 	--switchesAmount: 1;
-	--tab-height: 3vw;
+	--tab-height: 5vw;
 	--tabIcon-height: 1.5vw;
 	--tabButton-paddingY: 1vw;
 	--tabs-height: calc(100vh - 10vw - (var(--avatar-size) + var(--badge-size)/2) - 3vw - 4vw) !important;
@@ -379,7 +379,7 @@ aside[visible] {
 }
 #pageSwitcher .page li {
 	color: var(--text-color1);
-	font-size: 1.2vw;
+	font-size: 1.0vw;
 	font-weight: bold;
 	cursor: pointer;
 }

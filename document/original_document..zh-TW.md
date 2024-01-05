@@ -8,7 +8,7 @@ threadSBT
 
 > 2023 &copy; MaoHuPi
 > 
-> 說明文件語言：繁體中文 / [English](../README.md)
+> 說明文件語言：繁體中文 / [English](original_document.en.md)
 > 
 > 若要使用此模板，請前往[原專案位置](https://github.com/maohupi/threadSBT)下載
 

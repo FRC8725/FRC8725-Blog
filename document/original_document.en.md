@@ -1,4 +1,4 @@
-![threadSBT-banner](document/image/banner.png)
+![threadSBT-banner](image/banner.png)
 
 threadSBT
 =========
@@ -8,7 +8,7 @@ threadSBT
 
 > 2023 &copy; MaoHuPi
 > 
-> Document language: English / [繁體中文](document/README.zh-TW.md)
+> Document language: English / [繁體中文](original_document.zh-TW.md)
 > 
 > To use this template, please go to [original project location](https://github.com/maohupi/threadSBT) to download
 

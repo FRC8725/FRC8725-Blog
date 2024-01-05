@@ -38,7 +38,6 @@
 	box-shadow: none;
 }
 
-
 #pageSwitcher .page #categoryButtons.buttons > button {
 	background: 
 		radial-gradient(circle at 100% -1.5vw, rgba(var(--category-color), 0.4) 3.5vw, transparent 3.5vw), 
@@ -56,6 +55,11 @@ article > .category {
 		background: linear-gradient(to right, rgb(var(--category-color)), var(--labelHovered-background));
 	}
 }
+
+#pageSwitcher .page {
+	--page-height: calc(100vh - 10vw - var(--pageSwitcher-height) - 12vw);
+}
+
 article > .cover, 
 article > .category {
 	box-shadow: none;
