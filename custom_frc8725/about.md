@@ -316,11 +316,11 @@
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #666666; --bgi: url('<?=basicPath?>/image/aboutImage/logo-twitter.png');" href="https://www.youtube.com/watch?v=BbeeuzU5Qc8">
 					<h3>Twitter</h3>
-					<p contentkey="twitter-description"></p>
+					<p contentkey="twitter-description">...</p>
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #9bffa0; --bgi: url('<?=basicPath?>/image/aboutImage/logo-spotify.png');" href="https://www.youtube.com/watch?v=BbeeuzU5Qc8">
 					<h3>Spotify</h3>
-					<p contentkey="spotify-description"></p>
+					<p contentkey="spotify-description">...</p>
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #ac5d1e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-frc8725.png');" href="https://frc8725misty.blogspot.com/">
 					<h3>FRC-8725</h3>
@@ -328,7 +328,7 @@
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #fff27a; --bgi: url('<?=basicPath?>/image/aboutImage/logo-photos.png');" href="https://photos.google.com/?album=alanwu" onclick="event.preventDefault();window.open('https:\/\/youtu.be/dQw4w9WgXcQ?si=aiFtJ-IFWJuDlxDU', '_blank');">
 					<h3>Photos</h3>
-					<p contentkey="twitch-description">放了一些照片<br></p>
+					<p contentkey="twitch-description">...<br></p>
 				</a>
 			</div>
 		</div>

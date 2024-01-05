@@ -7,7 +7,7 @@ works:
       coverPath: <?=customDirPath?>/image/portfolioCover/Erebos.jpg
 
 videos:
-  text: 各式音樂專輯
+  text: FRC8725 影片
   data:
     - name: Robot Reveal 
       data:
