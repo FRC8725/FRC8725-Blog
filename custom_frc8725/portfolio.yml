@@ -1,0 +1,20 @@
+works:
+  text: 賽季機器人程式
+  data:
+    - name: 2023 ChargeUp
+      link: https://github.com/FRC8725/2023-Robot
+      description: 仿生夾爪機器人 Erebos 
+      coverPath: <?=customDirPath?>/image/portfolioCover/Erebos.jpg
+
+videos:
+  text: 各式音樂專輯
+  data:
+    - name: Robot Reveal 
+      data:
+        - name: 2023 - Erebos
+          iframeLink: https://www.youtube.com/embed/lOFJQkifRpo
+
+    - name: Turtorials
+      data:
+        - name: 底盤撰寫 Command Robot
+          iframeLink: https://www.youtube.com/embed/NYnwdAmANtA

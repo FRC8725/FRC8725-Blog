@@ -1,0 +1,584 @@
+/* basic element style */
+article > .content {
+	--text-color1: #000000;
+	--text-color2: #00000088;
+	--text-color3: #00000077;
+	--text-color4: #00000044;
+	--selection-color: white;
+	--selection-backgroundColor: #00000088;
+	--hr-color: black;
+	--code-background: #ffffff88;
+	--light-color: black;
+	--blockquote-backgroundColor: #ffffff22;
+	--blockquote-borderColor: #00000055;
+}
+html[theme="dark"] article > .content {
+	--text-color1: #ffffff;
+	--text-color2: #e7e7e7;
+	--text-color3: #dadada;
+	--text-color4: #6c6c6c;
+	--selection-color: black;
+	--selection-backgroundColor: #ffffff88;
+	--hr-color: white;
+	--code-background: #00000088;
+	--imageAlt-background: #00000088;
+	--light-color: white;
+	--blockquote-backgroundColor: #00000022;
+	--blockquote-borderColor: #ffffff55;
+}
+
+article > .content {
+	color: var(--text-color1);
+	user-select: text;
+    pointer-events: all;
+}
+article > .content * {
+	user-select: auto;
+	pointer-events: auto;
+	font-family: Arial, '微軟正黑體';
+}
+article > .content *::selection {
+	color: var(--selection-color);
+	background-color: var(--selection-backgroundColor);
+}
+article > .content::selection {
+	color: var(--text-color1);
+	background-color: var(--badge-backgroundColor);
+}
+article > .content h1 {
+	margin: 3vw 0px 1px 0px;
+	color: var(--text-color1);
+	font-size: 2.5vw !important;
+	font-weight: bold;
+}
+article > .content {
+	font-size: 1.3vw;
+}
+article > .content h2 {
+	margin: 2.5vw 0px 1vw 0px;
+	color: var(--text-color1);
+	font-size: 2.4vw !important;
+	font-weight: bold;
+}
+article > .content h3 {
+	margin: 2vw 0px 1vw 0px;
+	color: var(--text-color1);
+	font-size: 2.3vw !important;
+	font-weight: bold;
+}
+article > .content h4 {
+	margin: 1vw 0px 1vw 0px;
+	color: var(--text-color1);
+	font-size: 2.2vw !important;
+	font-weight: bold;
+}
+article > .content h5 {
+	margin: 1vw 0px 1vw 0px;
+	color: var(--text-color1);
+	font-size: 2.1vw !important;
+	font-weight: bold;
+}
+article > .content h6 {
+	margin: 1vw 0px 1vw 0px;
+	color: var(--text-color1);
+	font-size: 2vw !important;
+	font-weight: bold;
+}
+article > .content :where(h1, h2, h3, h4, h5, h6) {
+	position: relative;
+}
+article > .content > :where(h1, h2, h3, h4, h5, h6)::before {
+	content: '';
+	width: 0.5vw;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: -2vw;
+	background-color: var(--text-color1);
+}
+article > .content :where(h1, h2, h3, h4, h5, h6) * {
+	font-size: inherit !important;
+	font-weight: inherit !important;
+}
+article > .content p {
+	margin: 1vw 0px 1vw 0px;
+	color: var(--text-color1);
+	font-size: 1.3vw !important;
+	font-weight: normal;
+	font-style: normal;
+}
+article > .content a {
+	display: inline-block;
+	margin: 1vw 0px 1vw 0px;
+	color: var(--text-color2);
+	font-size: 1.3vw;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration-style: wavy;
+    text-decoration-color: var(--text-color2);
+    text-decoration-thickness: 0.1vw;
+    text-decoration-line: underline;
+}
+article > .content * a {
+	margin: 0px;
+}
+article > .content a:hover {
+	text-shadow: 0px 0px 1vw var(--light-color);
+}
+article > .content strong {
+	font-weight: bold;
+}
+article > .content em {
+	font-style: italic;
+}
+article > .content hr {
+	width: 100%;
+	height: 0px;
+	border-style: dashed;
+    border-width: 0px 0px 0.1vw 0px;
+    border-color: var(--hr-color);
+}
+article > .content code {
+    margin: 0px 0.2vw;
+	padding: 0.2vw 0.5vw;
+    font-weight: normal;
+	font-family: unset;
+	background: var(--code-background);
+    border-radius: 0.5vw;
+}
+article > .content pre.codeBlock {
+	--code-font: 'Consolas', 'Courier New', 'Hack Nerd Font', 'Gen Jyuu Gothic', monospace;
+	display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 5vw auto;
+    margin: 2vw 0px;
+	width: 100%;
+	position: relative;
+	font-family: var(--code-font);
+    font-size: 1.3vw;
+    border-radius: 1vw;
+	overflow: hidden;
+}
+article > .content pre.codeBlock .copyCodeButton {
+	padding: 0.2vw 0.5vw;
+	position: absolute;
+    top: 0px;
+    right: 0px;
+	color: var(--text-color1);
+	font-size: 1.2vw;
+	background-color: var(--text-color4);
+    border-radius: 0px 0px 0px 0.5vw;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 0px 0px var(--text-color2);
+	user-select: none;
+	transition: box-shadow 0.5s;
+}
+article > .content pre.codeBlock .copyCodeButton:hover {
+	box-shadow: -5px 5px 0px 0px var(--text-color2);
+}
+article > .content pre.codeBlock code {
+	padding: 1vw;
+	font-size: inherit !important;
+	font-weight: bold;
+	line-height: 1.5vw;
+	background-color: transparent;
+	border-radius: 0px;
+	box-sizing: border-box;
+}
+article > .content pre.codeBlock code:first-of-type {
+	color: var(--text-color4);
+	text-align: right;
+	text-overflow: ellipsis;
+	border-style: solid;
+	border-width: 0px 0.1vw 0px 0px;
+	border-color: var(--text-color4);
+	overflow: hidden;
+}
+article > .content img {
+	width: 100%;
+}
+article > .content .imageBox {
+	width: 100%;
+	position: relative;
+}
+article > .content .imageBox[data-alt]::after {
+	--height: 2vw;
+	padding: 0px 1vw;
+	content: attr(data-alt);
+	width: 100%;
+	height: var(--height);
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	color: var(--text-color1);
+	line-height: var(--height);
+	background-color: var(--imageAlt-background);
+	backdrop-filter: blur(2px);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 1s;
+}
+article > .content .imageBox[data-alt]:hover::after {
+	opacity: 1;
+}
+article > .content .imageBox[data-alt=""]:hover::after {
+	opacity: 0;
+}
+article > .content ol {
+}
+article > .content li {
+	margin: 0.5vw 0px 0.5vw 2vw;
+}
+article > .content blockquote {
+	margin: 0px;
+	padding: 0.1px 1vw;
+	background-color: var(--blockquote-backgroundColor);
+	border-style: solid;
+	border-width: 0px 0px 0px 0.5vw;
+	border-color: var(--blockquote-borderColor);
+}
+article > .content > blockquote {
+	margin: 1vw 0px;
+}
+article > .content table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+article > .content td {
+	padding: 1vw;
+	border-style: solid;
+	border-width: 0.1vw;
+	border-color: var(--text-color3);
+	background-color: var(--blockquote-backgroundColor);
+}
+article > .content thead td {
+	background-color: var(--blockquote-borderColor);
+}
+
+/* highlight.js style */
+article > .content .hljs-mark {
+	color: #000000;
+}
+article > .content pre code.hljs * {
+	font-family: var(--code-font);
+	font-weight: bold;
+}
+article > .content pre code.hljs {
+	display: block;
+	overflow-x: auto;
+	padding: 1em;
+	font-family: var(--code-font);
+	font-weight: bold;
+}
+article > .content code.hljs {
+	padding: 3px 5px;
+}
+article > .content pre.codeBlock {
+	background-color: #fbfbfb;
+}
+article > .content pre.codeBlock .hljs {
+	color: #5494b5;
+}
+article > .content .hljs.language-html {
+	color: #444444;
+}
+article > .content .hljs-comment {
+	color: #3e5946;
+}
+article > .content :where(.hljs-punctuation, .hljs-tag) {
+	color: #686868;
+}
+article > .content .hljs-tag .hljs-name {
+	color: #3e4f6a;
+}
+article > .content .hljs-tag .hljs-attr {
+	color: #5494b5;
+}
+article > .content .hljs-tag .hljs-mark {
+	color: inherit;
+}
+article > .content :where(.hljs-tag .hljs-attr, .hljs-tag .hljs-name) {
+	color: #3e4f6a;
+}
+article > .content :where(
+	.hljs-attribute,
+	.hljs-doctag,
+	.hljs-keyword,
+	.hljs-meta .hljs-keyword,
+	.hljs-name,
+	.hljs-selector-tag
+) {
+	/* font-weight: 700; */
+}
+article > .content .hljs-keyword {
+	color: #2d4475;
+}
+article > .content .hljs-keyword.notDeclare_ {
+	color: #752d74;
+}
+article > .content .hljs-subst {
+	color: #5494b5;
+}
+article > .content .hljs-subst .hljs-mark {
+	color: #48789a;
+}
+article > .content :where(
+	.hljs-deletion,
+	.hljs-number,
+	.hljs-quote,
+	.hljs-selector-class,
+	.hljs-selector-id,
+	.hljs-string,
+	.hljs-template-tag,
+	.hljs-type
+) {
+	color: #902d2d;
+}
+article > .content .hljs-number {
+	color: #64916c;
+}
+article > .content .hljs-type {
+	color: #2d4475;
+}
+article > .content :where(.hljs-section, .hljs-title) {
+	color: #5da86b;
+}
+article > .content .hljs-title.class_ {
+	color: #5da86b;
+}
+article > .content .hljs-title.function_ {
+	color: #c88c00;
+}
+article > .content :where(
+	.hljs-link,
+	.hljs-operator,
+	.hljs-regexp,
+	.hljs-selector-attr,
+	.hljs-selector-pseudo,
+	.hljs-symbol,
+	.hljs-template-variable,
+	.hljs-variable
+) {
+	color: #7d4c38;
+}
+article > .content .hljs-literal {
+	color: #414c6e;
+}
+article > .content .hljs-variable {
+	color: #104fa1;
+}
+article > .content .hljs-regexp {
+	color: #850b0b;
+}
+article > .content :where(
+	.hljs-addition,
+	.hljs-built_in,
+	.hljs-bullet,
+	.hljs-code
+) {
+	color: #c88c00;
+}
+article > .content .hljs-meta {
+	color: #2d4475;
+}
+article > .content .language-js .hljs-meta {
+	color: #902d2d;
+}
+article > .content .hljs-meta .hljs-string {
+	color: #902d2d;
+}
+article > .content .hljs-emphasis {
+	font-style: italic;
+}
+article > .content .hljs-strong {
+	font-weight: 700;
+}
+article > .content :where(.language-text, .language-txt) {
+	color: #000000 !important;
+}
+html[theme="dark"] article > .content .hljs-mark{
+	color: #dcdfe4;
+}
+html[theme="dark"] article > .content pre.codeBlock {
+	background-color: #212121;
+}
+html[theme="dark"] article > .content pre.codeBlock .hljs {
+	color: #9cdcfe;
+}
+html[theme="dark"] article > .content .hljs.language-html {
+	color: #dcdfe4;
+}
+html[theme="dark"] article > .content .hljs-comment {
+	color: #6a9949;
+}
+html[theme="dark"] article > .content :where(.hljs-punctuation, .hljs-tag) {
+	color: #808080;
+}
+html[theme="dark"] article > .content .hljs-tag .hljs-name {
+	color: #569cd6;
+}
+html[theme="dark"] article > .content .hljs-tag .hljs-attr {
+	color: #9cdcfe;
+}
+html[theme="dark"] article > .content .hljs-tag .hljs-mark {
+	color: inherit;
+}
+html[theme="dark"] article > .content :where(
+	.hljs-attribute,
+	.hljs-doctag,
+	.hljs-keyword,
+	.hljs-meta .hljs-keyword,
+	.hljs-name,
+	.hljs-selector-tag
+) {
+	/* font-weight: 700; */
+}
+html[theme="dark"] article > .content .hljs-keyword {
+	color: #569cd6;
+}
+html[theme="dark"] article > .content .hljs-keyword.notDeclare_ {
+	color: #c586c0;
+}
+html[theme="dark"] article > .content .hljs-subst {
+	color: #9cdcfe;
+}
+html[theme="dark"] article > .content .hljs-subst .hljs-mark {
+	color: #1b9fff;
+}
+html[theme="dark"] article > .content :where(
+	.hljs-deletion,
+	.hljs-number,
+	.hljs-quote,
+	.hljs-selector-class,
+	.hljs-selector-id,
+	.hljs-string,
+	.hljs-template-tag,
+	.hljs-type
+) {
+	color: #ce9178;
+}
+html[theme="dark"] article > .content .hljs-number {
+	color: #b5cea8;
+}
+html[theme="dark"] article > .content .hljs-string {
+	color: #ce9178 !important;
+}
+html[theme="dark"] article > .content .hljs-type {
+	color: #569cd6;
+}
+html[theme="dark"] article > .content :where(.hljs-section, .hljs-title) {
+	color: #4ec9b0;
+}
+html[theme="dark"] article > .content .hljs-title.class_ {
+	color: #4ec9b0;
+}
+html[theme="dark"] article > .content .hljs-title.function_ {
+	color: #dcdcaa;
+}
+html[theme="dark"] article > .content :where(
+	.hljs-link,
+	.hljs-operator,
+	.hljs-regexp,
+	.hljs-selector-attr,
+	.hljs-selector-pseudo,
+	.hljs-symbol,
+	.hljs-template-variable,
+	.hljs-variable
+) {
+	color: #7d4c38;
+}
+html[theme="dark"] article > .content .hljs-literal {
+	color: #2e7bd6;
+}
+html[theme="dark"] article > .content .hljs-variable {
+	color: #9cdcfe;
+}
+html[theme="dark"] article > .content .hljs-regexp {
+	color: #d16969 !important;
+}
+html[theme="dark"] article > .content .hljs-property {
+	color: #9cdcfe;
+}
+html[theme="dark"] article > .content :where(
+	.hljs-addition,
+	.hljs-built_in,
+	.hljs-bullet,
+	.hljs-code
+) {
+	color: #dcdcaa;
+}
+html[theme="dark"] article > .content .hljs-meta {
+	color: #569cd6;
+}
+html[theme="dark"] article > .content .language-js .hljs-meta {
+	color: #ce9178;
+}
+html[theme="dark"] article > .content .hljs-meta .hljs-string {
+	color: #ce9178;
+}
+html[theme="dark"] article > .content .hljs-emphasis {
+	font-style: italic;
+}
+html[theme="dark"] article > .content :where(.language-text, .language-txt) {
+	color: #dcdfe4 !important;
+}
+
+@media screen and (max-width: 100vh) {
+	article > .content {
+		font-size: 4vw;
+	}
+	article > .content h1 {
+		margin: 5vw 0px 2px 0px;
+		font-size: 6vw !important;
+	}
+	article > .content h2 {
+		margin: 4vw 0px 2vw 0px;
+		font-size: 5.8vw !important;
+	}
+	article > .content h3 {
+		margin: 3vw 0px 2vw 0px;
+		font-size: 5.6vw !important;
+	}
+	article > .content h4 {
+		margin: 2vw 0px 2vw 0px;
+		font-size: 5.4vw !important;
+	}
+	article > .content h5 {
+		margin: 2vw 0px 2vw 0px;
+		font-size: 5.2vw !important;
+	}
+	article > .content h6 {
+		margin: 2vw 0px 2vw 0px;
+		font-size: 5vw !important;
+	}
+	article > .content p {
+		margin: 2vw 0px 2vw 0px;
+		font-size: 4vw !important;
+	}
+	article > .content a {
+		margin: 2vw 0px 2vw 0px;
+		font-size: 4vw;
+	}
+	article > .content code {
+		border-radius: 1.5vw;
+	}
+	article > .content pre.codeBlock {
+		grid-template-columns: 15vw auto;
+		font-size: 4vw;
+		border-radius: 2.5vw;
+	}
+	article > .content pre.codeBlock .copyCodeButton {
+		padding: 1vw 2vw;
+		font-size: 2vw;
+		border-radius: 0px 0px 0px 2vw;
+		box-shadow: none;
+	}
+	article > .content pre.codeBlock .copyCodeButton:hover {
+		box-shadow: none;
+	}
+	article > .content pre.codeBlock code {
+		padding: 2.5vw;
+		line-height: 5vw;
+	}
+}

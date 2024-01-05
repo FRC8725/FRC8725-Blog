@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW" theme="dark">
+<head>
+	<!-- Basic Meta Tag -->
+	<meta name="description" content="KEEP GOING & DREAM IT" />
+	<meta name="robots" content="max-snippet:50, max-image-preview:standard, notranslate, noimageindex" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#3d3d3d" />
+	<!-- Open Graph Meta Tag -->
+	<meta property="og:url" content="https://maohupi.github.io/blog/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="FRC8725's Blog" />
+	<meta property="og:description" content="KEEP GOING & DREAM IT" />
+	<meta property="og:image" content="https://maohupi.github.io/blog//data/siteCover.jpg" />
+	<meta property="og:locale" content="zh-TW" />
+	<!-- Google Meta Tag -->
+	<meta name="googlebot-news" content="none" />
+	<!--  Twitter Meta Tag -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@jhou5846" />
+	<meta name="twitter:site" content="@jhou5846" />
+	<meta name="twitter:image" content="https://maohupi.github.io/blog//data/siteCover.jpg" />
+	<meta name="twitter:title" content="FRC8725's Blog" />
+	<meta name="twitter:description" content="KEEP GOING & DREAM IT" />
+
+	<title>FRC8725's Blog</title>
+	<base target="_blank" rel="noreferrer noopener" />
+	<link rel="shortcut icon" href="custom_frc8725/image/configImage/icon.ico" type="image/templateIcon/x-icon" />
+	<link rel="shortcut icon" href="custom_frc8725/image/configImage/icon.png" type="image/templateIcon/x-icon" />
+	<link rel="prefetch" href="data/md5.json" />
+	<link rel="prefetch" href="data/article.json" />
+	<link rel="prefetch" href="data/portfolio.json" />
+	<link id="mainCss" rel="stylesheet" href="public/style/main.css" />
+	<link rel="stylesheet" href="public/style/clickEffect.css" />
+	<link rel="stylesheet" href="public/style/floatAlert.css" />
+	<link rel="stylesheet" href="public/style/articleContent.css" />
+	<link rel="stylesheet" href="custom_frc8725/style/custom.css" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for FRC8725's Blog" href=".rss" />
+	<script src="public/script/basic.js"></script>
+	<script src="public/script/clickAnimation.js"></script>
+	<script src="public/script/floatAlert.js"></script>
+	<script src="public/script/bgAnimation.js"></script>
+	<!-- <script src="public/script/net_npm_marked_marked.min.js"></script> -->
+	<script src="public/script/slides.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked-highlight/lib/index.umd.js"></script>
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css"> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dark.min.css"> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+	<script>
+		const TITLE = `FRC8725's Blog`;
+		if(globalThis.TITLE === undefined) globalThis.TITLE = 'Blog';
+		const CUSTOM_DIR_PATH = `custom_frc8725`;
+		const CATEGORY_COLORS = {
+			'programming': {bright: `143, 170, 220`, dark: `113, 140, 190`}, 
+			'activity': {bright: `222, 170, 166`, dark: `192, 140, 136`}, 
+		};
+	</script>
+</head>
+<body>
+	<canvas id="bgAniCvs"></canvas>
+	<aside>
+		<div id="pageSwitcher">
+			<input type="radio" name="pageRadio" id="pageRadio-filter">
+			<label for="pageRadio-filter">Filter
+				<div class="page">
+					<h2>Search</h2><div id="searchBox" class="buttons"><input id="searchInput" type="text"></div>
+					<h2>Archives</h2><div id="archiveButtons" class="buttons"><!-- <button>2023</button> --></div>
+					<h2>Categories</h2><div id="categoryButtons" class="buttons"><!-- <button>tutorial</button> --></div>
+					<h2>Tags</h2><div id="tagButtons" class="buttons"><!-- <button>c++</button> --></div>
+				</div>
+			</label>
+			<input type="radio" name="pageRadio" id="pageRadio-outline">
+			<label for="pageRadio-outline">Outline
+				<div class="page">
+					<!-- <ol>
+						<li>1. 問題</li>
+						<li>2. 解析</li>
+						<li>3. 解方
+							<ol>
+								<li>3-1. Map</li>
+								<li>3-2. WeakMap</li>
+							</ol>
+						</li>
+					</ol> -->
+				</div>
+			</label>
+		</div>
+		<div id="pages">
+			<div></div>
+		</div>
+		<button id="scrollToArticle"></button>
+	</aside>
+	<main>
+		<!-- <article class="closed">
+			<p class="category">tutorial</p>
+			<h1 class="title">JS用物件當鍵值</h1>
+			<p class="description">前些日子寫出的bug，直接把我搞到瘋掉</p>
+			<p class="info"><span class="publishedTime">Apr 16, 2023</span><span class="readingTime">2 minute read</span></p>
+		</article> -->
+	</main>
+	<footer>
+		<hr>
+		2023 © FRC8725's Blog<br />
+		<p>
+		This template is made by <a href="https://maohupi.github.io">MaoHuPi</a><br />
+		Icon taken from Google Fonts
+		</p>
+	</footer>
+	<header>
+		<div id="avatarBox">
+			<img id="avatar" src="custom_frc8725/image/configImage/avatar.png" alt="site avatar" />
+			<div id="badges">
+				<div data-title="Science">🔬</div>
+				<div data-title="Technology">💻</div>
+				<div data-title="Engineering">🪛</div>
+			</div>
+			<div id="badgeDescription"></div>
+		</div>
+		<h1 id="siteName">FRC8725's Blog</h1>
+		<p id="siteDescription">KEEP GOING & DREAM IT</p>
+		<ul id="tabs" style="--tabsAmount: 4; --switchesAmount: 3;">
+			<li id="tab-home" style="--bgi: url('../image/templateIcon/tabIcon-home.svg');"><a data-href="?page=home">Home</a></li>
+			<li id="tab-about" style="--bgi: url('../image/templateIcon/tabIcon-about.svg');" data-aboutPath="custom_frc8725/about.md"><a data-href="?page=about" rel="author me">About</a></li>
+			<li id="tab-articles" style="--bgi: url('../image/templateIcon/tabIcon-articles.svg');"><a data-href="?page=articles">Articles</a></li>
+			<li id="tab-portfolio" style="--bgi: url('../image/templateIcon/tabIcon-portfolio.svg');"><a data-href="?page=portfolio">Portfolio</a></li>
+			<div id="switches">
+				<div>
+					<li id="rssUrlCopy"><a>Copy RSS</a></li>
+					<li id="backgroundMusicSwitch" data-path="custom_frc8725/audio/MaoHuPi-running.wav" data-volume="0.5"><a>BG Music</a></li>
+					<li id="darkModeSwitch"><a>Dark Mode</a></li>
+				</div>
+			</div>
+		</ul>
+		<nav></nav>
+	</header>
+	<div id="slidesPlayer">
+		<div class="box"></div>
+		<div class="bar">
+			<div id="slidesThemeSelector"></div>
+			<div id="slidesControlButtons">
+				<button id="slidesButton-fullScreen" style="--bgi: url('../image/templateIcon/slides-fullScreen.svg');"></button>
+				<button id="slidesButton-close" style="--bgi: url('../image/templateIcon/slides-close.svg');"></button>
+			</div>
+		</div>
+	</div>
+	<div id="alerts"></div>
+	<div id="effects"></div>
+	<script src="public/script/loadData.js"></script>
+	<script src="public/script/main.js"></script>
+</body>
+</html>

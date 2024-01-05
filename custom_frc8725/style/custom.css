@@ -1,0 +1,97 @@
+/* main.css */
+*::-webkit-scrollbar {
+	--scrollbar-size: 0.5vw;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background-color: #666666b7;
+    border-radius: 100vw;
+    margin: 0px;
+}
+:root {
+	--scrollThumb-backgroundColor: #00000000;
+	--header-backgroundColor: #fb95429e;
+	--box-backgroundColor: #efefef;
+	--searchMark-background: #f5c7d7;
+}
+:root[theme="dark"] {
+	--mainColor: #00000000;
+	--header-backgroundColor: #f9872c88;
+	--box-backgroundColor: #505050;
+	--searchMark-background: #7b5160;
+}
+:root * {
+	--defaultCategory-color: 193, 193, 193;
+}
+:root[theme="dark"] * {
+	--defaultCategory-color: 120, 120, 120;
+}
+
+#badgeDescription {
+	box-shadow: none;
+}
+#tabs {
+	--tab-height: 2.5vw;
+	--tabIcon-height: 1.25vw;
+}
+#pageSwitcher .page .buttons > button, 
+#pageSwitcher .page input {
+	box-shadow: none;
+}
+
+
+#pageSwitcher .page #categoryButtons.buttons > button {
+	background: 
+		radial-gradient(circle at 100% -1.5vw, rgba(var(--category-color), 0.4) 3.5vw, transparent 3.5vw), 
+		radial-gradient(circle at 100% -1.5vw, rgba(var(--category-color), 0.4) 5.25vw, transparent 5.25vw);
+	background-color: var(--box-backgroundColor);
+}
+article > .category {
+	background-color: rgb(var(--category-color));
+}
+.filterBar {
+	background: linear-gradient(to bottom, rgb(var(--category-color)), var(--labelHovered-background));
+}
+@media screen and (max-width: 100vh) {
+	.filterBar {
+		background: linear-gradient(to right, rgb(var(--category-color)), var(--labelHovered-background));
+	}
+}
+article > .cover, 
+article > .category {
+	box-shadow: none;
+}
+
+/* articleContent.css */
+:root {
+	--custom-linkColor: #326b9b;
+	--custom-strongColor: #383b4355;
+}
+:root[theme="dark"] {
+	--custom-linkColor: #4ba3eb;
+	--custom-strongColor: #f5f7ff55;
+}
+
+article > .content a {
+	color: var(--custom-linkColor);
+	text-decoration-style: solid;
+    text-decoration-color: var(--custom-linkColor);
+    text-decoration-thickness: 0.1vw;
+    text-decoration-line: underline;
+}
+
+article > .content a:hover {
+	text-shadow: 0px 0px 0.5vw var(--custom-strongColor);
+}
+
+article > .content code {
+    margin: 0px 0.2vw;
+	padding: 0.2vw 0.5vw;
+    font-weight: normal;
+	font-family: unset;
+	background: var(--code-background);
+    border-radius: 0.2vw;
+}
+
+article > .content pre.codeBlock {
+	border-radius: 0.5vw;
+}

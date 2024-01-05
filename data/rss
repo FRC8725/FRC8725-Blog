@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title><?=config.title?></title>
+	<atom:link href="<?=config.siteUrl?>/rss" rel="self" type="application/rss+xml" />
+	<link><?=config.siteUrl?></link>
+	<description><?=config.description?></description>
+	<lastBuildDate><?=article.publishedTime.-1?></lastBuildDate>
+	<language><?=config.language?></language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://github.com/maohupi/blogTemplate_thread</generator>
+
+	<image>
+		<url><?=config.siteUrl?>/public/image/logo_RSS_square_150x150.png</url>
+		<title><?=config.title?></title>
+		<link><?=config.siteUrl?></link>
+		<width>32</width>
+		<height>32</height>
+	</image> 
+	
+	<item><title><?=article.title?></title><link><?=config.siteUrl?>?page=article&amp;article=<?=article.name?></link><dc:creator><![CDATA[<?=config.owner?>]]></dc:creator><pubDate><?=article.publishedTime?></pubDate><category><![CDATA[<?=article.category?>]]></category><guid isPermaLink="true"><?=config.siteUrl?>?page=article&amp;article=<?=article.name?></guid><description><![CDATA[<?=article.description?>]]></description></item>
+	</channel>
+</rss>

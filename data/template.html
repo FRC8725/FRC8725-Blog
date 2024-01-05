@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="<?=language?>" theme="dark">
+<head>
+	<!-- Basic Meta Tag -->
+	<meta name="description" content="<?=description?>" />
+	<meta name="robots" content="max-snippet:50, max-image-preview:standard, notranslate, noimageindex" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#3d3d3d" />
+	<!-- Open Graph Meta Tag -->
+	<meta property="og:url" content="<?=siteUrl?>" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="<?=title?>" />
+	<meta property="og:description" content="<?=description?>" />
+	<meta property="og:image" content="<?=siteUrl?>/data/siteCover.jpg" />
+	<meta property="og:locale" content="<?=language?>" />
+	<!-- Google Meta Tag -->
+	<meta name="googlebot-news" content="none" />
+	<meta name="google-site-verification" content="<?=google.siteVerification?>" />
+	<!--  Twitter Meta Tag -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="<?=twitter.creator?>" />
+	<meta name="twitter:site" content="<?=twitter.site?>" />
+	<meta name="twitter:image" content="<?=siteUrl?>/data/siteCover.jpg" />
+	<meta name="twitter:title" content="<?=title?>" />
+	<meta name="twitter:description" content="<?=description?>" />
+
+	<title><?=title?></title>
+	<base target="_blank" rel="noreferrer noopener" />
+	<link rel="shortcut icon" href="<?=customDirPath?>/<?=iconPath.ico?>" type="image/templateIcon/x-icon" />
+	<link rel="shortcut icon" href="<?=customDirPath?>/<?=iconPath.png?>" type="image/templateIcon/x-icon" />
+	<link rel="prefetch" href="data/md5.json" />
+	<link rel="prefetch" href="data/article.json" />
+	<link rel="prefetch" href="data/portfolio.json" />
+	<link id="mainCss" rel="stylesheet" href="public/style/main.css" />
+	<link rel="stylesheet" href="public/style/clickEffect.css" />
+	<link rel="stylesheet" href="public/style/floatAlert.css" />
+	<link rel="stylesheet" href="public/style/articleContent.css" />
+	<link rel="stylesheet" href="<?=customDirPath?>/style/custom.css" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for <?=title?>" href=".rss" />
+	<script src="public/script/basic.js"></script>
+	<script src="public/script/clickAnimation.js"></script>
+	<script src="public/script/floatAlert.js"></script>
+	<script src="public/script/bgAnimation.js"></script>
+	<!-- <script src="public/script/net_npm_marked_marked.min.js"></script> -->
+	<script src="public/script/slides.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked-highlight/lib/index.umd.js"></script>
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css"> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dark.min.css"> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+	<script src="public/script/gl-matrix-min.js" data-nothing="<?=skinPath?>"></script>
+	<script>
+		const TITLE = `<?=title?>`;
+		if(globalThis.TITLE === undefined) globalThis.TITLE = 'Blog';
+		const CUSTOM_DIR_PATH = `<?=customDirPath?>`;
+		const LIKER_ACCOUNT = `<?=liker.account?>`;
+		const CATEGORY_COLORS = {
+			'<?=category.name?>': {bright: `<?=category.color.bright?>`, dark: `<?=category.color.dark?>`}, 
+		};
+	</script>
+</head>
+<body>
+	<canvas id="bgAniCvs"></canvas>
+	<aside>
+		<div id="pageSwitcher">
+			<input type="radio" name="pageRadio" id="pageRadio-filter">
+			<label for="pageRadio-filter"><?=pages.filter.text?>
+				<div class="page">
+					<h2><?=pages.filter.search?></h2><div id="searchBox" class="buttons"><input id="searchInput" type="text"></div>
+					<h2><?=pages.filter.archives?></h2><div id="archiveButtons" class="buttons"><!-- <button>2023</button> --></div>
+					<h2><?=pages.filter.categories?></h2><div id="categoryButtons" class="buttons"><!-- <button>tutorial</button> --></div>
+					<h2><?=pages.filter.tags?></h2><div id="tagButtons" class="buttons"><!-- <button>c++</button> --></div>
+				</div>
+			</label>
+			<input type="radio" name="pageRadio" id="pageRadio-outline">
+			<label for="pageRadio-outline"><?=pages.outline.text?>
+				<div class="page">
+					<!-- <ol>
+						<li>1. 問題</li>
+						<li>2. 解析</li>
+						<li>3. 解方
+							<ol>
+								<li>3-1. Map</li>
+								<li>3-2. WeakMap</li>
+							</ol>
+						</li>
+					</ol> -->
+				</div>
+			</label>
+		</div>
+		<div id="pages">
+			<div></div>
+		</div>
+		<button id="scrollToArticle"></button>
+	</aside>
+	<main>
+		<!-- <article class="closed">
+			<p class="category">tutorial</p>
+			<h1 class="title">JS用物件當鍵值</h1>
+			<p class="description">前些日子寫出的bug，直接把我搞到瘋掉</p>
+			<p class="info"><span class="publishedTime">Apr 16, 2023</span><span class="readingTime">2 minute read</span></p>
+		</article> -->
+	</main>
+	<footer>
+		<hr>
+		2023 © <?=title?><br />
+		<p>
+		This template is made by <a href="https://maohupi.github.io">MaoHuPi</a><br />
+		Icon taken from Google Fonts
+		</p>
+	</footer>
+	<header>
+		<div id="avatarBox">
+			<img id="avatar" src="<?=customDirPath?>/<?=avatarPath?>" alt="site avatar" />
+			<div id="badges">
+				<div data-title="<?=badges.message?>"><?=badges.icon?></div>
+			</div>
+			<div id="badgeDescription"></div>
+		</div>
+		<h1 id="siteName"><?=title?></h1>
+		<p id="siteDescription"><?=description?></p>
+		<ul id="tabs" style="--tabsAmount: <?=tabsAmount?>; --switchesAmount: <?=switchesAmount?>;">
+			<li id="tab-home" style="--bgi: url('../image/templateIcon/tabIcon-home.svg');"><a data-href="?page=home"><?=tabs.home.text?></a></li>
+			<li id="tab-about" style="--bgi: url('../image/templateIcon/tabIcon-about.svg');" data-aboutPath="<?=customDirPath?>/<?=tabs.about.path?>"><a data-href="?page=about" rel="author me"><?=tabs.about.text?></a></li>
+			<li id="tab-articles" style="--bgi: url('../image/templateIcon/tabIcon-articles.svg');"><a data-href="?page=articles"><?=tabs.articles.text?></a></li>
+			<li id="tab-portfolio" style="--bgi: url('../image/templateIcon/tabIcon-portfolio.svg');"><a data-href="?page=portfolio"><?=tabs.portfolio.text?></a></li>
+			<div id="switches">
+				<div>
+					<li id="rssUrlCopy"><a><?=switches.rssUrl.text?></a></li>
+					<li id="backgroundMusicSwitch" data-path="<?=customDirPath?>/<?=switches.backgroundMusic.path?>" data-volume="<?=switches.backgroundMusic.volume?>"><a><?=switches.backgroundMusic.text?></a></li>
+					<li id="darkModeSwitch"><a><?=switches.darkMode.text?></a></li>
+				</div>
+			</div>
+		</ul>
+		<nav></nav>
+	</header>
+	<canvas id="character" data-path="<?=customDirPath?>/<?=skinPath?>"></canvas>
+	<div id="slidesPlayer">
+		<div class="box"></div>
+		<div class="bar">
+			<div id="slidesThemeSelector"></div>
+			<div id="slidesControlButtons">
+				<button id="slidesButton-fullScreen" style="--bgi: url('../image/templateIcon/slides-fullScreen.svg');"></button>
+				<button id="slidesButton-close" style="--bgi: url('../image/templateIcon/slides-close.svg');"></button>
+			</div>
+		</div>
+	</div>
+	<div id="alerts"></div>
+	<div id="effects"></div>
+	<script src="public/script/loadData.js"></script>
+	<script src="public/script/main.js"></script>
+	<script src="public/script/character.js" data-nothing="<?=skinPath?>"></script>
+</body>
+</html>

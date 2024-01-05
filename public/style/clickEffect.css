@@ -1,0 +1,35 @@
+.ClickAnimation_animationElement {
+	--x: unset;
+	--y: unset;
+	--size: 10vw;
+	width: var(--size);
+	height: var(--size);
+	position: fixed;
+	top: calc(var(--y) - var(--size)/2);
+	left: calc(var(--x) - var(--size)/2);
+	background-color: transparent;
+	border-style: solid;
+	border-color: black;
+	border-width: 0.1vw;
+	border-radius: 0px;
+	pointer-events: none;
+	animation-name: ClickAnimation_ani1;
+	animation-duration: 1s;
+	opacity: 0;
+}
+html[theme="dark"] .ClickAnimation_animationElement {
+	border-color: white;
+}
+@keyframes ClickAnimation_ani1 {
+	0% {
+		opacity: 1;
+		transform: scaleX(0) scaleY(0) rotateZ(0deg);
+	}
+	30% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: scaleX(1) scaleY(1) rotateZ(135deg);
+	}
+}

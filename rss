@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>FRC8725's Blog</title>
+	<atom:link href="https://maohupi.github.io/blog//rss" rel="self" type="application/rss+xml" />
+	<link>https://maohupi.github.io/blog/</link>
+	<description>KEEP GOING & DREAM IT</description>
+	<lastBuildDate>Fri, 08 Sep 2023 00:00:00 +0800</lastBuildDate>
+	<language>zh-TW</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://github.com/maohupi/blogTemplate_thread</generator>
+
+	<image>
+		<url>https://maohupi.github.io/blog//public/image/logo_RSS_square_150x150.png</url>
+		<title>FRC8725's Blog</title>
+		<link>https://maohupi.github.io/blog/</link>
+		<width>32</width>
+		<height>32</height>
+	</image> 
+	
+	<item><title>FRC8725 軟體培訓教學</title><link>https://maohupi.github.io/blog/?page=article&amp;article=frc8725_software_edu</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Fri, 08 Sep 2023 00:00:00 +0800</pubDate><category><![CDATA[programming]]></category><guid isPermaLink="true">https://maohupi.github.io/blog/?page=article&amp;article=frc8725_software_edu</guid><description><![CDATA[如何讓機器人動起來]]></description></item>
+	</channel>
+</rss>
