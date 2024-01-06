@@ -3,7 +3,6 @@
 <!-- category: programming -->
 <!-- tags: FRC8725 -->
 <!-- published time: 2023/09/08 -->
-<!-- cover: <?=customDirPath?>/image/articleCover/frc8725_software_edu_cover.jpg -->
 
 # 安裝環境
 ## WPILib
@@ -26,7 +25,7 @@ API Docs
 包含 Roborio Imaging 以及 Driver Station
 
 搜尋 FRC game tools 加年分或是前往 [FRC Game Tools Download](https://www.ni.com/zh-tw/support/downloads/drivers/download.frc-game-tools.html#479842) 選擇當年度的工具
-(若原本已經有 FRC game tools 的只需要安裝新檔即可，更新時會自動覆蓋)
+(若原本已經有 FRC game tools 的只需要安裝新檔即可, 更新時會自動覆蓋)
 
 ## 刷機軟體
 [CTRE Phoenix Tuner](https://store.ctr-electronics.com/software/)
