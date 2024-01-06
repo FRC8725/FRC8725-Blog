@@ -12,7 +12,7 @@
 	<atom:link href="https://maohupi.github.io/blog//rss" rel="self" type="application/rss+xml" />
 	<link>https://maohupi.github.io/blog/</link>
 	<description>KEEP GOING & DREAM IT</description>
-	<lastBuildDate>Mon, 02 Oct 2023 00:00:00 +0800</lastBuildDate>
+	<lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0800</lastBuildDate>
 	<language>zh-TW</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -29,5 +29,6 @@
 	<item><title>FRC8725 軟體培訓教學 - 安裝環境與刷機</title><link>https://maohupi.github.io/blog/?page=article&amp;article=frc8725_enviro_edu</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Fri, 08 Sep 2023 00:00:00 +0800</pubDate><category><![CDATA[programming]]></category><guid isPermaLink="true">https://maohupi.github.io/blog/?page=article&amp;article=frc8725_enviro_edu</guid><description><![CDATA[撰寫程式前的前置作業]]></description></item>
 	<item><title>FRC8725 軟體培訓教學 - 程式撰寫</title><link>https://maohupi.github.io/blog/?page=article&amp;article=frc8725_software_edu</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Sun, 10 Sep 2023 00:00:00 +0800</pubDate><category><![CDATA[programming]]></category><guid isPermaLink="true">https://maohupi.github.io/blog/?page=article&amp;article=frc8725_software_edu</guid><description><![CDATA[類比搖桿控制單一馬達]]></description></item>
 	<item><title>FRC8725 軟體培訓教學 - KOP底盤</title><link>https://maohupi.github.io/blog/?page=article&amp;article=frc8725_KOPprog_edu</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Mon, 02 Oct 2023 00:00:00 +0800</pubDate><category><![CDATA[programming]]></category><guid isPermaLink="true">https://maohupi.github.io/blog/?page=article&amp;article=frc8725_KOPprog_edu</guid><description><![CDATA[控制 KOP 底盤]]></description></item>
+	<item><title>FRC8725 軟體培訓教學 - 進階內容</title><link>https://maohupi.github.io/blog/?page=article&amp;article=frc8725_advance_edu</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Mon, 06 Nov 2023 00:00:00 +0800</pubDate><category><![CDATA[programming]]></category><guid isPermaLink="true">https://maohupi.github.io/blog/?page=article&amp;article=frc8725_advance_edu</guid><description><![CDATA[函式說明與其他零件使用]]></description></item>
 	</channel>
 </rss>
