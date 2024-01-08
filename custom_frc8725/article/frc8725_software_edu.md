@@ -123,9 +123,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
 
         this.Motor = new PWMVictorSPX(robotMap.CIM.motor);
         this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
-        this.motor.configVoltageCompSaturation(12.0); 
-        // 電壓輸出百分比, 例：設定為12V時, 若馬達輸出50%動力, 將嘗試產生6V
-
+        this.motor.configVoltageCompSaturation(12.0); // 電壓輸出百分比
         this.motor.setNeutralMode(NeutralMode.Brake); // kBrake 停止後鎖住馬達, kCoast 停止後保持慣性
         this.Motor.setInverted(false); // 是否反轉
         
@@ -209,9 +207,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
     public DriveMotorSubsystem() {
         this.motor = new TalonFX(robotMap.Talon.motor);
         this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
-        this.motor.configVoltageCompSaturation(30);
-        // 電壓輸出百分比, 例：設定為12V時, 若馬達輸出50%動力, 將嘗試產生6V
-        
+        this.motor.configVoltageCompSaturation(30); // 電壓輸出百分比 
         this.motor.setInverted(false); // 是否反轉
         this.motor.setNeutralMode(NeutralMode.Brake); // kBrake 停止後鎖住馬達, kCoast 停止後保持慣性
     }
