@@ -68,3 +68,7 @@ category:
     color:
       bright: '222, 170, 166'
       dark: '192, 140, 136'
+  - name: Crescendo
+    color:
+      bright: '64, 178, 123'
+      dark: '64, 178, 123'
