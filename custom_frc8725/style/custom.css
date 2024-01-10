@@ -99,3 +99,11 @@ article > .content code {
 article > .content pre.codeBlock {
 	border-radius: 0.5vw;
 }
+
+#pageSwitcher .page li {
+	color: var(--text-color1);
+	font-size: 1.0vw;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 2.7vw;
+}
