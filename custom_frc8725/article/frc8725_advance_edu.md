@@ -6,8 +6,8 @@
 
 # 進階內容
 ## 馬達配置
-### CTRE
-#### CIM & TalonFX 皆可使用
+### Phoneix5
+#### CIM & TalonFX
 * `enableVoltageCompensation(boolean)`: 電壓補償
 * `configVoltageCompSaturation(double)`: 電壓輸出百分比, 例：設定為12V時, 若馬達輸出50%動力, 將嘗試產生6V
 * `setInverted(boolean)`: 設定正反轉
@@ -21,10 +21,13 @@
 
 例：`set(TalonFXControlMode.PercentOutput, 1)`
 
-#### 僅TalonFX 可使用
+#### Only TalonFX
 
 * `getSelectedSensorPosition()`: 取得馬達旋轉角度
 * `getSelectedSensorVelocity()`: 取得馬達速度
+
+### Phoneix6
+`待更新`
 
 ### REV
 
