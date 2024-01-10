@@ -22,7 +22,6 @@
 例：`set(TalonFXControlMode.PercentOutput, 1)`
 
 #### Only TalonFX
-
 * `getSelectedSensorPosition()`: 取得馬達旋轉角度
 * `getSelectedSensorVelocity()`: 取得馬達速度
 
