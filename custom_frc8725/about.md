@@ -318,9 +318,9 @@
 					<h3>Twitter</h3>
 					<p contentkey="twitter-description">...</p>
 				</a>
-				<a target="_blank" class="card hrefButton" style="--shadowColor: #9bffa0; --bgi: url('<?=basicPath?>/image/aboutImage/logo-spotify.png');" href="https://www.youtube.com/watch?v=BbeeuzU5Qc8">
-					<h3>Spotify</h3>
-					<p contentkey="spotify-description">...</p>
+				<a target="_blank" class="card hrefButton" style="--shadowColor: #9bffa0; --bgi: url('<?=basicPath?>/image/aboutImage/logo-zeczec.png');" href="https://www.zeczec.com/projects/FRC-8725-MistyPanther?r=d172312431859">
+					<h3>Zeczec</h3>
+					<p contentkey="zeczec-description">贊助我們!</p>
 				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #ac5d1e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-frc8725.png');" href="https://frc8725misty.blogspot.com/">
 					<h3>FRC-8725</h3>
