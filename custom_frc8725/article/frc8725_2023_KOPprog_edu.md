@@ -1,4 +1,4 @@
-<!-- title: FRC8725 軟體培訓教學 - KOP底盤 -->
+<!-- title: FRC8725 軟體培訓教學 - KOP底盤(2023) -->
 <!-- description: 控制 KOP 底盤 -->
 <!-- category: programming -->
 <!-- tags: FRC8725 -->

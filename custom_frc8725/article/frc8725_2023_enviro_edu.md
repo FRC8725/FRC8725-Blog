@@ -1,4 +1,4 @@
-<!-- title: FRC8725 軟體培訓教學 - 安裝環境與刷機 -->
+<!-- title: FRC8725 軟體培訓教學 - 安裝環境與刷機(2023) -->
 <!-- description: 撰寫程式前的前置作業 -->
 <!-- category: programming -->
 <!-- tags: FRC8725 -->

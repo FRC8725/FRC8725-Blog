@@ -1,4 +1,4 @@
-<!-- title: FRC8725 軟體培訓教學 - 進階內容 -->
+<!-- title: FRC8725 軟體培訓教學 - 進階內容(2023) -->
 <!-- description: 函式說明與其他零件使用 -->
 <!-- category: programming -->
 <!-- tags: FRC8725 -->

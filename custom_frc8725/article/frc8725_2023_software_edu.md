@@ -1,4 +1,4 @@
-<!-- title: FRC8725 軟體培訓教學 - 程式撰寫 -->
+<!-- title: FRC8725 軟體培訓教學 - 程式撰寫(2023) -->
 <!-- description: 類比搖桿控制單一馬達 -->
 <!-- category: programming -->
 <!-- tags: FRC8725 -->
