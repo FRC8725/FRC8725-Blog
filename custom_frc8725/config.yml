@@ -39,11 +39,9 @@ tabs:
 tabsAmount: 4
 
 switches:
-  rssUrl:
-    text: Copy RSS
   backgroundMusic:
     text: BG Music
-    path: audio/MaoHuPi-running.wav
+    path: audio/music.wav
     volume: 0.5
   darkMode:
     text: Dark Mode
@@ -60,7 +58,7 @@ pages:
     text: Outline
 
 category:
-  - name: programming
+  - name: Programming
     color:
       bright: '143, 170, 220'
       dark: '113, 140, 190'
