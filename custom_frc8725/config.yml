@@ -39,6 +39,8 @@ tabs:
 tabsAmount: 4
 
 switches:
+  rssUrl:
+    text: Copy RSS
   backgroundMusic:
     text: BG Music
     path: audio/music.wav
