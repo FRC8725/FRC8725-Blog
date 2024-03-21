@@ -2,3 +2,4 @@
 - Upload 2024 portfolio 
 - Removed out-of-date tutorials
 - Rendered blog
+- Uplaod Electronics

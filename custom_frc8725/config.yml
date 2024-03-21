@@ -64,7 +64,13 @@ category:
     color:
       bright: '143, 170, 220'
       dark: '113, 140, 190'
-  - name: activity
+
+  - name: Electronics
+    color:
+      bright: '255, 217, 98'
+      dark: '255, 217, 98'
+
+  - name: Activity
     color:
       bright: '222, 170, 166'
       dark: '192, 140, 136'

@@ -1,6 +1,6 @@
 <!-- title: FRC8725 軟體培訓教學 - KOP底盤 -->
 <!-- description: 控制 KOP 底盤 -->
-<!-- category: programming -->
+<!-- category: Programming -->
 <!-- tags: FRC8725 -->
 <!-- published time: 2024/03/18 -->
 
