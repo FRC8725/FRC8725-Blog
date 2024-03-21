@@ -3,3 +3,4 @@
 - Removed out-of-date tutorials
 - Rendered blog
 - Uplaod Electronics
+- Upload 2024 portfolio Digtal Animation Award

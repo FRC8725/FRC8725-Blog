@@ -14,6 +14,14 @@ works:
 videos:
   text: FRC8725 影片
   data:
+    - name: Digtal Animation Award
+      data:
+        - name: 2023 - Recahargeable
+          iframeLink: https://www.youtube.com/embed/1D_BeLvLOiQ
+
+        - name: 2024 - Fright to Might
+          iframeLink: https://www.youtube.com/embed/vVsvNV72xTM
+
     - name: Robot Reveal 
       data:
         - name: 2023 - Erebos
