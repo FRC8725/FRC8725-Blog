@@ -6,6 +6,11 @@ works:
       description: 仿生夾爪機器人 Erebos 
       coverPath: <?=customDirPath?>/image/portfolioCover/Erebos.jpg
 
+    - name: 2024 Crescendo
+      link: https://github.com/FRC8725/2024-Robot
+      description: 超級土炮機器人 Chaos
+      coverPath: <?=customDirPath?>/image/portfolioCover/Chaos.jpg
+
 videos:
   text: FRC8725 影片
   data:
@@ -14,7 +19,11 @@ videos:
         - name: 2023 - Erebos
           iframeLink: https://www.youtube.com/embed/lOFJQkifRpo
 
+        - name: 2024 - Chaos
+          iframeLink: https://www.youtube.com/embed/RNSMcuBLs2s
+
     - name: Turtorials
       data:
         - name: 底盤撰寫 Command Robot
           iframeLink: https://www.youtube.com/embed/NYnwdAmANtA
+

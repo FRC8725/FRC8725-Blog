@@ -31,17 +31,6 @@
 4. 選擇 `install new libraries(online)` 並貼上剛剛複製的網址, 跳出 build 時請按確定
 5. 函式庫安裝完成
 
-函式庫網址
-
-* NavX2（陀螺儀）<br>
-https://dev.studica.com/releases/2023/NavX.json
-
-* REVLib（Neo）<br>
-https://software-metadata.revrobotics.com/REVLib-2023.json
-
-* Phoenix（CIM & TalonFX）<br>
-https://maven.ctr-electronics.com/release/com/ctre/phoenix/Phoenix5-frc2023-latest.json
-
 ## Command robot
 ### 檔案之間關係
 ![](image/articleImage/software_edu/image4.wm.png)
