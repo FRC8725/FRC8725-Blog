@@ -1,23 +1,23 @@
-<!-- title: FRC8725 軟體培訓教學 - KOP底盤(2023) -->
+<!-- title: FRC8725 軟體培訓教學 - KOP底盤 -->
 <!-- description: 控制 KOP 底盤 -->
 <!-- category: programming -->
 <!-- tags: FRC8725 -->
-<!-- published time: 2023/10/2 -->
+<!-- published time: 2024/03/18 -->
 
 # KOP底盤撰寫
-使用 CIM 馬達為範例
+使用 CIM（VictorSPX） 馬達為範例
 
 ## 常數設置
-1. 於 `src\main\java\frc\robot\robotMap.java` 寫入馬達ID（編號）
+1. 於 `src\main\java\frc\robot\DeviceId.java` 寫入馬達ID（編號）
 ```java
 package frc.robot;
 
-public class robotMap {
+public class DeviceId {
     public static final class DriveMotor {
-        public static final int LEFT_FRONT = 1;
-        public static final int LEFT_BACK = 2;
-        public static final int RIGHT_FRONT = 3;
-        public static final int RIGHT_BACK = 4;
+        public static final int FRONT_LEFT = 1;
+        public static final int BACK_LEFT = 2;
+        public static final int FRONT_RIGHT = 3;
+        public static final int BACK_RIGHT = 4;
     }
 }
 
@@ -29,29 +29,22 @@ public class robotMap {
 > Deadband 用於防止搖桿無法完全歸零, 搖桿輸入需大於 Deadband 否則視為 0
 
 ```java
-package frc.robot;
-
-public final class Constants {
-    public static final class Drive {
-        public static final double MAX_SPEED = 0.5;
-        public static final double MAX_TURN_SPEED = 0.7;
-        public static final double DEAD_BAND = 0.05;
-    }
+public static final class Drive {
+    public static final double MAX_SPEED = 0.5;
+    public static final double MAX_TURN_SPEED = 0.7;
+    public static final double DEAD_BAND = 0.05; // 當前面的值小於0.05則視為0
 }
 
 ```
 
 3. 一樣於 `Constants` 中寫入馬達的正反轉 (同一邊的馬達轉向相同)
 ```java
-package frc.robot;
 
-public final class Constants {
-    public static final class MotorReverse {
-        public static final boolean LEFT_FRONT = false;
-        public static final boolean LEFT_BACK = false;
-        public static final boolean RIGHT_FRONT = true;
-        public static final boolean RIGHT_BACK = true;
-    }
+public static final class MotorReverse {
+    public static final boolean LEFT_FRONT = false;
+    public static final boolean LEFT_BACK = false;
+    public static final boolean RIGHT_FRONT = true;
+    public static final boolean RIGHT_BACK = true;
 }
 ```
 
@@ -79,7 +72,7 @@ public class DriveMotorModule {
     public DriveMotorModule(int motorPort, boolean reverse) {
         this.motor = new VictorSPX(motorPort);
         this.motor.enableVoltageCompensation(true);
-        this.motor.configVoltageCompSaturation(12.0);
+        this.motor.configVoltageCompSaturation(15.0);
         this.motor.setNeutralMode(NeutralMode.Brake);
         this.motor.setInverted(reverse);
     }
@@ -108,7 +101,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorReverse;
-import frc.robot.robotMap.DriveMotor;
+import frc.robot.DeviceId.DriveMotor;
 ```
 
 3. 於 `DriveMotorSubsystem` 宣告四顆馬達
@@ -228,4 +221,24 @@ public boolean isFinished() {
 }
 ```
 
-7. 把 `DriveJoystickCmd` 寫入 `RobotContainer.java`
+7. 把 `DriveJoystickCmd.java` 寫入 `RobotContainer.java`
+```java
+package frc.robot;
+
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.Command;
+
+public class RobotContainer {
+    private final GamepadJoystick joystick  = new GamepadJoystick(GamepadJoystick.CONTROLLER_PORT);
+    private final DriveMotorSubsystem driveMotorSubsystem = new DriveMotorSubsystem();
+    private final DriveJoystickCmd driveJoystickCmd = new DriveJoystickCmd(driveMotorSubsystem, joystick);
+
+    public RobotContainer() {
+	    this.driveMotorSubsystem.setDefaultCommand(this.driveJoystickCmd);
+    }
+
+    public Command getAutonomousCommand() {
+	    return null;
+    }
+}
+```

@@ -1,8 +1,8 @@
-<!-- title: FRC8725 軟體培訓教學 - 程式撰寫(2023) -->
+<!-- title: FRC8725 軟體培訓教學 - 程式撰寫 -->
 <!-- description: 類比搖桿控制單一馬達 -->
 <!-- category: programming -->
 <!-- tags: FRC8725 -->
-<!-- published time: 2023/09/10 -->
+<!-- published time: 2024/03/18 -->
 <!-- cover: <?=customDirPath?>/image/articleCover/frc8725_software_edu_cover.jpg -->
 
 # 程式撰寫
@@ -27,20 +27,34 @@
 由於要撰寫來自不同經銷商(Vendor)控制器, 因此需要下載其函示庫
 1. 搜尋 WPILib vendor libraries 或是前往 [3rd Party Libraries](https://docs.wpilib.org/en/stable/docs/software/vscode-overview/3rd-party-libraries.html#libraries)
 2. 複製該函式庫的網址
-3. 至 Vscode 按下 `ctrl+shift+p` 進行指令搜尋 `Manage Vendor Libraries`
-4. 選擇 `install new libraries(online)` 並貼上剛剛複製的網址, 跳出 build 時請按確定
+3. 至 Vscode 按下 `Ctrl+Shift+p` 進行指令搜尋 `Manage Vendor Libraries`
+4. 選擇 `Install new libraries(online)` 並貼上剛剛複製的網址, 跳出 build 時請按確定
 5. 函式庫安裝完成
+
+函式庫網址
+
+* NavX2（陀螺儀）<br>
+https://dev.studica.com/releases/2024/NavX.json
+
+* REVLib（Neo）<br>
+https://software-metadata.revrobotics.com/REVLib-2024.json
+
+* Phoenix 6（TalonFX）<br>
+https://maven.ctr-electronics.com/release/com/ctre/phoenix6/latest/Phoenix6-frc2024-latest.json
+
+* Phoenix 5 （VictorSPX） <br>
+https://maven.ctr-electronics.com/release/com/ctre/phoenix/Phoenix5-frc2024-latest.json
 
 ## Command robot
 ### 檔案之間關係
-![](image/articleImage/software_edu/image4.wm.png)
+![](image/articleImage/software_edu/image8.wm.png)
 
 ### 資料夾結構
 ![](image/articleImage/software_edu/image5.wm.png)
 
 ## 常數設置
 
-1. 於 `src\main\java\frc\robot\` 創建 `robotMap.java`, 用於紀錄馬達ID（編號）
+1. 於 `src\main\java\frc\robot\` 創建 `DeviceId.java`, 用於紀錄馬達ID（編號）
 ```java
 package frc.robot;
 
@@ -84,7 +98,7 @@ public final class Constants {
 
 ## 馬達控制 （僅一顆）
 ### CIM 馬達
-1. 於 `src\main\java\frc\robot\subsystems` 創建 DriveMotorSubsystem.java 用於控制馬達
+1. 於 `src\main\java\frc\robot\subsystems` 創建 `DriveMotorSubsystem.java` 用於控制馬達
 2. 引入函式庫
 
 ```java
@@ -96,26 +110,23 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
-import frc.robot.robotMap;
+import frc.robot.DeviceId;
 ```
 
-3. 創建 `DriveMotorSubsystem` 類別, 以 PWMVictorSPX 宣告一顆 CIM 馬達
+3. 創建 `DriveMotorSubsystem` 類別, 以 VictorSPX 宣告一顆 CIM 馬達
 4. 寫入 移動 `move` 與停止 `stop` 方法
 
 ```java
 public class DriveMotorSubsystem extends SubsystemBase {
-
-    private PWMVictorSPX Motor;
+    private final VictorSPX Motor;
     private double speed_input;
 
     public DriveMotorSubsystem() {
-
-        this.Motor = new PWMVictorSPX(robotMap.CIM.motor);
+        this.Motor = new VictorSPX(DeviceId.CIM.motor);
         this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
-        this.motor.configVoltageCompSaturation(12.0); // 電壓輸出百分比
+        this.motor.configVoltageCompSaturation(15.0); // 電壓輸出百分比
         this.motor.setNeutralMode(NeutralMode.Brake); // kBrake 停止後鎖住馬達, kCoast 停止後保持慣性
         this.Motor.setInverted(false); // 是否反轉
-        
     }
 
     public move(double speed) {
@@ -130,7 +141,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
 ```
 
 ### NEO 馬達
-1. 於 `src\main\java\frc\robot\subsystems` 創建 DriveMotorSubsystem.java 用於控制馬達
+1. 於 `src\main\java\frc\robot\subsystems` 創建 `DriveMotorSubsystem.java` 用於控制馬達
 2. 引入函式庫
 
 ```java
@@ -142,7 +153,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
-import frc.robot.robotMap;
+import frc.robot.DeviceId;
 ```
 3. 創建 `DriveMotorSubsystem` 類別, 以 CANSparkMax 宣告一顆 NEO 馬達
 4. 寫入 移動 `move` 與停止 `stop` 方法
@@ -152,7 +163,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
     private final CANSparkMax motor;
 
     public DriveMotorSubsystem() {
-        this.motor = new CANSparkMax(robotMap.NEO.motor, MotorType.kBrushless);
+        this.motor = new CANSparkMax(DeviceId.NEO.motor, MotorType.kBrushless);
         this.motor.setSmartCurrentLimit(30); // 電流限制
         this.motor.setInverted(false);  // 是否反轉
         this.motor.setIdleMode(IdleMode.kBrake); // kBrake 停止後鎖住馬達, kCoast 停止後保持慣性
@@ -172,7 +183,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
 ### TalonFX 馬達
 又或者是 Falcon 馬達
 
-1. 於 `src\main\java\frc\robot\subsystems` 創建 DriveMotorSubsystem.java 用於控制馬達
+1. 於 `src\main\java\frc\robot\subsystems` 創建 `DriveMotorSubsystem.java` 用於控制馬達
 2. 引入函式庫
 
 ```java
@@ -184,7 +195,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
-import frc.robot.robotMap;
+import frc.robot.DeviceId;
 ```
 3. 創建 DriveMotorSubsystem 類別, 以TalonFX宣告一顆Talon馬達
 4. 寫入 移動 `move` 與停止 `stop` 方法
@@ -194,7 +205,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
     private final TalonFX motor;
 
     public DriveMotorSubsystem() {
-        this.motor = new TalonFX(robotMap.Talon.motor);
+        this.motor = new TalonFX(DeviceId.Talon.motor);
         this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
         this.motor.configVoltageCompSaturation(30); // 電壓輸出百分比 
         this.motor.setInverted(false); // 是否反轉
@@ -213,7 +224,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
 ```
 
 ## 搖桿控制
-1. 於 src\main\java\frc\robot\commands 創建 DriveJoystickCmd.java
+1. 於 `src\main\java\frc\robot\commands` 創建 `DriveJoystickCmd.java`
 2. 引入函式庫
 
 ```java
@@ -281,8 +292,7 @@ import frc.robot.subsystems.DriveMotorSubsystem;
 5. 宣告一個機構模組(Subsystem)與搖桿, 並在 Container 中進行搖　桿值的讀取傳入機構模組的函式中執行
 ```java
 public class RobotContainer {
-
-    private final GamepadJoystick controller  = new GamepadJoystick(GamepadJoystick.CONTROLLER_PORT);
+    private final GamepadJoystick joystick  = new GamepadJoystick(GamepadJoystick.CONTROLLER_PORT);
     private final DriveMotorSubsystem driveMotorSubsystem = new DriveMotorSubsystem();
     private final DriveJoystickCmd driveJoystickCmd = new DriveJoystickCmd(driveMotorSubsystem, joystick);
 
@@ -304,14 +314,14 @@ public class RobotContainer {
 
 ## 上傳程式
 1. 確定無報錯
-2. **<span style="color: #ff5555">CAN 接線無誤 </span>**,  Roborio 連接正常
+2. **<span style="color: #ff5555">CAN 接線無誤 </span>**,  RoboRIO 連接正常
 3. 關閉防火牆
 4. **Shift + F5** 上傳程式, 出現 <span style="color: #6ce26c">BUILD SUCCESSFUL </span> 代表上傳完成
 5. 連接搖桿進行測試
 
 
 ### 關閉防火牆
-在上傳程式碼或操控 Roborio 時才需要
+在上傳程式碼或操控 RoboRIO 時才需要(其實不需要)
 
 #### 使用 Windows 批次檔
 1. 在隨意路徑下創建一個資料夾

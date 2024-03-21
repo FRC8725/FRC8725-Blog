@@ -1,4 +1,4 @@
-<!-- title: FRC8725 軟體培訓教學 - Limelight撰寫(2024) -->
+<!-- title: FRC8725 軟體培訓教學 - Limelight撰寫 -->
 <!-- description: 使用Limelight偵測與目標距離 -->
 <!-- category: programming -->
 <!-- tags: FRC8725 -->
