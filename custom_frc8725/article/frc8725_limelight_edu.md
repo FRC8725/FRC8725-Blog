@@ -61,8 +61,59 @@ public class Limelight extends SubsystemBase implements IDashboardProvider {
 * `h1` `LensHeightMeters` Limelight與地板高度
 * `h2` `GoalHeightMeters` AprilTag與地板高度
 
-* `tan(a1+a2) = (h2-h1) / d`
-* `d = (h2-h1) / tan(a1+a2)`
+<br>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>tan</mi>
+  <mo data-mjx-texclass="NONE">&#x2061;</mo>
+  <mo stretchy="false">(</mo>
+  <mi>a</mi>
+  <mn>1</mn>
+  <mo>+</mo>
+  <mi>a</mi>
+  <mn>2</mn>
+  <mo stretchy="false">)</mo>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mi>h</mi>
+      <mn>2</mn>
+      <mo>&#x2212;</mo>
+      <mi>h</mi>
+      <mn>1</mn>
+    </mrow>
+    <mi>d</mi>
+  </mfrac>
+</math><br>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mo stretchy="false">&#x21D3;</mo>
+</math><br>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>d</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mi>h</mi>
+      <mn>2</mn>
+      <mo>&#x2212;</mo>
+      <mi>h</mi>
+      <mn>1</mn>
+    </mrow>
+    <mrow>
+      <mi>tan</mi>
+      <mo data-mjx-texclass="NONE">&#x2061;</mo>
+      <mo stretchy="false">(</mo>
+      <mi>a</mi>
+      <mn>1</mn>
+      <mo>+</mo>
+      <mi>a</mi>
+      <mn>2</mn>
+      <mo stretchy="false">)</mo>
+    </mrow>
+  </mfrac>
+</math><br><br>
+
 ![](image/articleImage/software_edu/image10.wm.png)
 
 ```java
@@ -85,7 +136,20 @@ public double getDistanceToGoalVerticalMeters() {
 * `a1` `HorizontalOffset` 與AprilTag夾角
 * `d` `distanceToGoalVerticalMeters` 與AprilTag距離
 * `h` `distanceToGoalHorizontalMeters` 與Limelight水平距離
-* `h = tan(a1) * d`
+
+<br>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>h</mi>
+  <mo>=</mo>
+  <mi>tan</mi>
+  <mo data-mjx-texclass="NONE">&#x2061;</mo>
+  <mo stretchy="false">(</mo>
+  <mi>a</mi>
+  <mn>1</mn>
+  <mo stretchy="false">)</mo>
+  <mo>&#xD7;</mo>
+  <mi>d</mi>
+</math><br>
 
 ![](image/articleImage/software_edu/image11.wm.png)
 
