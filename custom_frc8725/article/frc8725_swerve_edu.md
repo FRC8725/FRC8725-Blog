@@ -101,7 +101,7 @@
   <mo>&#xF7;</mo>
   <mn>60</mn>
 </math><br>
-* 角度係數轉換
+* 角度係數轉換：
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mi>c</mi>
   <mi>o</mi>
