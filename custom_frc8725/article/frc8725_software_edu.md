@@ -52,6 +52,9 @@ https://maven.ctr-electronics.com/release/com/ctre/phoenix/Phoenix5-frc2024-late
 ### 資料夾結構
 ![](image/articleImage/software_edu/image5.wm.png)
 
+### 機器人坐標系
+![](image/articleImage/software_edu/image12.wm.png)
+
 ## 常數設置
 
 1. 於 `src\main\java\frc\robot\` 創建 `DeviceId.java`, 用於紀錄馬達ID（編號）
