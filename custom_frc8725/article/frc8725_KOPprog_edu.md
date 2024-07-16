@@ -142,8 +142,32 @@ public void stopModules() {
 ```
 
 ## 控制底盤
-1. 於 `src\man\java\frc\robot\commands` 創建 `DriveJoystickCmd.java`
+1. 於 `src\main\java\frc\robot` 創建 `GamepadJoystick.java`
 2. 引入函式庫
+```java
+package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.DriveMotorSubsystem;
+```
+3. 宣告 subsystem 和搖桿函式庫
+```java
+// 讓 class 以官方的 CommandBase 函式庫擴充
+public class DriveJoystickCmd extends CommandBase {
+    private final DriveMotorSubsystem driveMotorSubsystem;
+    private final XboxController controller;
+
+    public DriveJoystickCmd(DriveMotorSubsystem driveMotorSubsystem, XboxController controller) {
+        this.driveMotorSubsystem = driveMotorSubsystem;
+        this.controller = controller;
+    
+        addRequirements(this.driveMotorSubsystem);
+    }
+}
+```
+4. 於 `src\main\java\frc\robot\commands` 創建 `DriveJoystickCmd.java`
+5. 引入函式庫
 ```java
 package frc.robot.commands;
 
