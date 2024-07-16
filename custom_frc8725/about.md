@@ -314,10 +314,6 @@
 					<h3>Instagram</h3>
 					<p contentkey="instagram-description">隊伍日常<br>交流、活動、培訓</p>
 				</a>
-				<a target="_blank" class="card hrefButton" style="--shadowColor: #666666; --bgi: url('<?=basicPath?>/image/aboutImage/logo-twitter.png');" href="https://www.youtube.com/watch?v=BbeeuzU5Qc8">
-					<h3>Twitter</h3>
-					<p contentkey="twitter-description">...</p>
-				</a>
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #444444; --bgi: url('<?=basicPath?>/image/aboutImage/logo-zeczec.png');" href="https://www.zeczec.com/projects/FRC-8725-MistyPanther?r=d172312431859">
 					<h3>Zeczec</h3>
 					<p contentkey="zeczec-description">贊助我們!</p>
@@ -325,10 +321,6 @@
 				<a target="_blank" class="card hrefButton" style="--shadowColor: #ac5d1e; --bgi: url('<?=basicPath?>/image/aboutImage/logo-frc8725.png');" href="https://frc8725misty.blogspot.com/">
 					<h3>FRC-8725</h3>
 					<p contentkey="github-description">南山高中 FRC Team <br>8725 Misty Panther</p>
-				</a>
-				<a target="_blank" class="card hrefButton" style="--shadowColor: #fff27a; --bgi: url('<?=basicPath?>/image/aboutImage/logo-photos.png');" href="https://photos.google.com/?album=alanwu" onclick="event.preventDefault();window.open('https:\/\/youtu.be/dQw4w9WgXcQ?si=aiFtJ-IFWJuDlxDU', '_blank');">
-					<h3>Photos</h3>
-					<p contentkey="twitch-description">...<br></p>
 				</a>
 			</div>
 		</div>

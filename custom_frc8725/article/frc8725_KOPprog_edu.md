@@ -125,8 +125,8 @@ public class DriveMotorSubsystem extends SubsystemBase {
 ```java
 public void move(double leftSpeed, double rightSpeed) {
     this.leftfront.setDesiredState(leftSpeed);
-    this.rightfront.setDesiredState(leftSpeed);
-    this.rightback.setDesiredState(rightSpeed);
+    this.leftback.setDesiredState(leftSpeed);
+    this.rightfront.setDesiredState(rightSpeed);
     this.rightback.setDesiredState(rightSpeed);
 }
 ```
@@ -135,53 +135,42 @@ public void move(double leftSpeed, double rightSpeed) {
 ```java
 public void stopModules() {
     this.leftfront.stop();
+    this.leftback.stop();
     this.rightfront.stop();
-    this.rightback.stop();
     this.rightback.stop();
 }
 ```
 
 ## 控制底盤
-1. 於 `src\main\java\frc\robot` 創建 `GamepadJoystick.java`
-2. 引入函式庫
+1. 於 `src\main\java\frc\robot` 創建 `GamepadJoystick.java` , 用於搖桿操作
 ```java
-package frc.robot.commands;
+package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DriveMotorSubsystem;
-```
-3. 宣告 subsystem 和搖桿函式庫
-```java
-// 讓 class 以官方的 CommandBase 函式庫擴充
-public class DriveJoystickCmd extends CommandBase {
-    private final DriveMotorSubsystem driveMotorSubsystem;
-    private final XboxController controller;
 
-    public DriveJoystickCmd(DriveMotorSubsystem driveMotorSubsystem, XboxController controller) {
-        this.driveMotorSubsystem = driveMotorSubsystem;
-        this.controller = controller;
-    
-        addRequirements(this.driveMotorSubsystem);
+public class GamepadJoystick extends XboxController {
+    public GamepadJoystick(int port) {
+        super(port);
     }
+    public static final int CONTROLLER_PORT = 0;
 }
 ```
-4. 於 `src\main\java\frc\robot\commands` 創建 `DriveJoystickCmd.java`
-5. 引入函式庫
+2. 於 `src\main\java\frc\robot\commands` 創建 `DriveJoystickCmd.java`
+3. 引入函式庫
 ```java
 package frc.robot.commands;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.Drive;
 import frc.robot.subsystems.DriveMotorSubsystem;
 ```
 
 3. 於 `DriveJoystickCmd` 導入 `DriveMotorSubsystem` 與搖桿
 ```java
-public class DriveJoystickCmd extends CommandBase {
+public class DriveJoystickCmd extends Command {
     private final DriveMotorSubsystem driveMotorSubsystem;
     private final XboxController controller;
 
@@ -193,16 +182,14 @@ public class DriveJoystickCmd extends CommandBase {
     }
 }
 ```
-
-4. 輸出左右馬達的速度
 ### Tank Drive
 左右搖桿的數值直接控制單邊的馬達
 
 ```java
 @Override
 public void execute() {
-    double leftSpeed = MathUtil.applyDeadband(this.controller.getLeftY(), Drive.DEAD_BAND);
-    double rightSpeed = MathUtil.applyDeadband(this.controller.getRightY(), Drive.DEAD_BAND);
+    double leftSpeed = -MathUtil.applyDeadband(this.controller.getLeftY(), Drive.DEAD_BAND) * Drive.MAX_SPEED;
+    double rightSpeed = MathUtil.applyDeadband(this.controller.getRightY(), Drive.DEAD_BAND) * Drive.MAX_TURN_SPEED;
 		
     this.driveMotorSubsystem.move(leftSpeed, rightSpeed);
     SmartDashboard.putNumber("leftSpeed", leftSpeed); // 於 Dashboard 顯示左速度值
@@ -216,7 +203,7 @@ public void execute() {
 ```java
 @Override
 public void execute() {
-    double driveSpeed = MathUtil.applyDeadband(this.controller.getLeftY(), Drive.DEAD_BAND);
+    double driveSpeed = -MathUtil.applyDeadband(this.controller.getLeftY(), Drive.DEAD_BAND);
     double turnSpeed = MathUtil.applyDeadband(this.controller.getRightX(), Drive.DEAD_BAND) * Drive.MAX_TURN_SPEED;
     // 讓轉向速度稍微慢一點, 比較好操控
 

@@ -61,7 +61,7 @@ https://maven.ctr-electronics.com/release/com/ctre/phoenix/Phoenix5-frc2024-late
 ```java
 package frc.robot;
 
-public class robotMap {
+public class DeviceId {
     public static final class CIM {
         public static final int motor = 1;
     }
@@ -81,7 +81,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 
-public class GamepadJoystick extends XboxController{
+public class GamepadJoystick extends XboxController {
     public GamepadJoystick(int port) {
         super(port);
     }
@@ -128,7 +128,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
         this.Motor = new VictorSPX(DeviceId.CIM.motor);
         this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
         this.motor.configVoltageCompSaturation(15.0); // 電壓輸出百分比
-        this.motor.setNeutralMode(NeutralMode.Brake); // kBrake 停止後鎖住馬達, kCoast 停止後保持慣性
+        this.motor.setNeutralMode(NeutralMode.Brake); // Brake 停止後鎖住馬達, Coast 停止後保持慣性
         this.Motor.setInverted(false); // 是否反轉
     }
 
@@ -212,7 +212,7 @@ public class DriveMotorSubsystem extends SubsystemBase {
         this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
         this.motor.configVoltageCompSaturation(30); // 電壓輸出百分比 
         this.motor.setInverted(false); // 是否反轉
-        this.motor.setNeutralMode(NeutralMode.Brake); // kBrake 停止後鎖住馬達, kCoast 停止後保持慣性
+        this.motor.setNeutralMode(NeutralMode.Brake); // Brake 停止後鎖住馬達, Coast 停止後保持慣性
     }
 
     public void move(double speed) {
@@ -234,15 +234,15 @@ public class DriveMotorSubsystem extends SubsystemBase {
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.DriveMotorSubsystem;
 ```
 
 2. 宣告 subsystem 和搖桿函式庫
 
 ```java
-// 讓 class 以官方的 CommandBase 函式庫擴充
-public class DriveJoystickCmd extends CommandBase {
+// 讓 class 以官方的 Command 函式庫擴充
+public class DriveJoystickCmd extends Command {
     private final DriveMotorSubsystem driveMotorSubsystem;
     private final XboxController controller;
 
@@ -318,7 +318,7 @@ public class RobotContainer {
 ## 上傳程式
 1. 確定無報錯
 2. **<span style="color: #ff5555">CAN 接線無誤 </span>**,  RoboRIO 連接正常
-3. 關閉防火牆
+3. 關閉防火牆(非必要)
 4. **Shift + F5** 上傳程式, 出現 <span style="color: #6ce26c">BUILD SUCCESSFUL </span> 代表上傳完成
 5. 連接搖桿進行測試
 

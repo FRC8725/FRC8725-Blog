@@ -8,7 +8,7 @@ DESCRIPTION = '''
 -custom <custom directory path>
 -update <update type (all / config / article / portfolio)>
 '''
-CUSTOM_DIR_PATH = 'custom'
+CUSTOM_DIR_PATH = 'custom_frc8725'
 DATA_DIR_PATH = 'data'
 
 def process(customDirPath, dataDirPath, updateValueList):
