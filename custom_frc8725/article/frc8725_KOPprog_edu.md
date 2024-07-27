@@ -15,8 +15,8 @@ package frc.robot;
 public class DeviceId {
     public static final class DriveMotor {
         public static final int FRONT_LEFT = 1;
-        public static final int BACK_LEFT = 2;
         public static final int FRONT_RIGHT = 3;
+        public static final int BACK_LEFT = 2;
         public static final int BACK_RIGHT = 4;
     }
 }
@@ -41,10 +41,10 @@ public static final class Drive {
 ```java
 
 public static final class MotorReverse {
-    public static final boolean LEFT_FRONT = false;
-    public static final boolean LEFT_BACK = false;
-    public static final boolean RIGHT_FRONT = true;
-    public static final boolean RIGHT_BACK = true;
+    public static final boolean FRONT_LEFT = false;
+    public static final boolean FRONT_RIGHT = true;
+    public static final boolean BACK_LEFT = false;
+    public static final boolean BACK_RIGHT = true;
 }
 ```
 
@@ -107,16 +107,16 @@ import frc.robot.DeviceId.DriveMotor;
 3. 於 `DriveMotorSubsystem` 宣告四顆馬達
 ```java
 public class DriveMotorSubsystem extends SubsystemBase {
-    private final DriveMotorModule leftfront;
-    private final DriveMotorModule leftback;
-    private final DriveMotorModule rightfront;
-    private final DriveMotorModule rightback;
+    private final DriveMotorModule frontLeft;
+    private final DriveMotorModule frontRight;
+    private final DriveMotorModule backLeft;
+    private final DriveMotorModule backRight;
 
     public DriveMotorSubsystem() {
-        this.leftfront = new DriveMotorModule(DriveMotor.LEFT_FRONT, MotorReverse.LEFT_FRONT);
-        this.leftback = new DriveMotorModule(DriveMotor.LEFT_BACK, MotorReverse.LEFT_BACK);
-        this.rightfront = new DriveMotorModule(DriveMotor.RIGHT_FRONT, MotorReverse.RIGHT_FRONT);
-        this.rightback = new DriveMotorModule(DriveMotor.RIGHT_BACK, MotorReverse.RIGHT_BACK);
+        this.frontLeft = new DriveMotorModule(DriveMotor.FRONT_LEFT, MotorReverse.FRONT_LEFT);
+        this.frontRight = new DriveMotorModule(DriveMotor.FRONT_RIGHT, MotorReverse.FRONT_RIGHT);
+        this.backLeft = new DriveMotorModule(DriveMotor.BACK_LEFT, MotorReverse.BACK_LEFT);
+        this.backRight = new DriveMotorModule(DriveMotor.BACK_RIGHT, MotorReverse.BACK_RIGHT);
     }
 }
 ```
@@ -124,20 +124,20 @@ public class DriveMotorSubsystem extends SubsystemBase {
 4. 創建讓 KOP 移動的方法, 左右兩邊各需要一個速度讓底盤旋轉，故有 left 和 right Speed
 ```java
 public void move(double leftSpeed, double rightSpeed) {
-    this.leftfront.setDesiredState(leftSpeed);
-    this.leftback.setDesiredState(leftSpeed);
-    this.rightfront.setDesiredState(rightSpeed);
-    this.rightback.setDesiredState(rightSpeed);
+    this.frontLeft.setDesiredState(leftSpeed);
+    this.backLeft.setDesiredState(leftSpeed);
+    this.frontRight.setDesiredState(rightSpeed);
+    this.backRight.setDesiredState(rightSpeed);
 }
 ```
 
 5. 創建讓底盤停止的方法
 ```java
 public void stopModules() {
-    this.leftfront.stop();
-    this.leftback.stop();
-    this.rightfront.stop();
-    this.rightback.stop();
+    this.frontLeft.stop();
+    this.frontRight.stop();
+    this.backLeft.stop();
+    this.backRight.stop();
 }
 ```
 
@@ -236,8 +236,9 @@ public boolean isFinished() {
 ```java
 package frc.robot;
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.DriveJoystickCmd;
+import frc.robot.subsystems.DriveMotorSubsystem;
 
 public class RobotContainer {
     private final GamepadJoystick joystick  = new GamepadJoystick(GamepadJoystick.CONTROLLER_PORT);
