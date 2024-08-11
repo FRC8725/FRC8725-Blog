@@ -65,16 +65,15 @@ import frc.robot.Constants.Drive;
 
 3. 於 `DriveMotorModule` 宣告單顆馬達
 ```java
-public class DriveMotorModule {
+public class DriveModule {
     private final VictorSPX motor;
-    private double speedOutput;
 
-    public DriveMotorModule(int motorPort, boolean reverse) {
-        this.motor = new VictorSPX(motorPort);
+    public DriveModule(int port, boolean reverse) {
+        this.motor = new VictorSPX(port);
         this.motor.enableVoltageCompensation(true);
         this.motor.configVoltageCompSaturation(15.0);
-        this.motor.setNeutralMode(NeutralMode.Brake);
         this.motor.setInverted(reverse);
+        this.motor.setNeutralMode(NeutralMode.Brake);
     }
 }
 ```
@@ -82,8 +81,7 @@ public class DriveMotorModule {
 4. 寫入轉動與停止方法
 ```java
 public void setDesiredState(double speed) {
-    this.speedOutput = speed * Drive.MAX_SPEED; // 乘 Max Speed（<1）可限制馬達最大速度
-    this.motor.set(VictorSPXControlMode.PercentOutput, this.speedOutput);
+    this.motor.set(VictorSPXControlMode.PercentOutput, speed);
 }
 
 public void stop() {
@@ -155,7 +153,7 @@ public class GamepadJoystick extends XboxController {
     public static final int CONTROLLER_PORT = 0;
 }
 ```
-2. 於 `src\main\java\frc\robot\commands` 創建 `DriveJoystickCmd.java`
+2. 於 `src\main\java\frc\robot\commands` 創建 `DriveCmd.java`
 3. 引入函式庫
 ```java
 package frc.robot.commands;
@@ -165,21 +163,20 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.Drive;
-import frc.robot.subsystems.DriveMotorSubsystem;
+import frc.robot.subsystems.DriveSubsystem;
 ```
 
-3. 於 `DriveJoystickCmd` 導入 `DriveMotorSubsystem` 與搖桿
+3. 於 `DriveCmd` 導入 `DriveMotorSubsystem` 與搖桿
 ```java
-public class DriveJoystickCmd extends Command {
-    private final DriveMotorSubsystem driveMotorSubsystem;
-    private final XboxController controller;
+public class DriveCmd extends Command {
+	private final DriveSubsystem driveSubsystem;
+	private final XboxController controller;
 
-    public DriveJoystickCmd(DriveMotorSubsystem driveMotorSubsystem, XboxController controller) {
-        this.driveMotorSubsystem = driveMotorSubsystem;
-        this.controller = controller;
-            
-        addRequirements(this.driveMotorSubsystem);
-    }
+	public DriveCmd(DriveSubsystem driveSubsystem, XboxController controller) {
+		this.driveSubsystem = driveSubsystem;
+		this.controller = controller;
+		this.addRequirements(this.driveSubsystem);
+	}
 }
 ```
 ### Tank Drive
@@ -203,16 +200,15 @@ public void execute() {
 ```java
 @Override
 public void execute() {
-    double driveSpeed = -MathUtil.applyDeadband(this.controller.getLeftY(), Drive.DEAD_BAND);
-    double turnSpeed = MathUtil.applyDeadband(this.controller.getRightX(), Drive.DEAD_BAND) * Drive.MAX_TURN_SPEED;
-    // 讓轉向速度稍微慢一點, 比較好操控
+	double driveSpeed = -MathUtil.applyDeadband(this.controller.getLeftY(), Drive.DEAD_BAND) * Drive.MAX_SPEED;
+	double turnSpeed = MathUtil.applyDeadband(this.controller.getRightX(), Drive.DEAD_BAND) * Drive.MAX_TURN_SPEED;
 
-    double leftSpeed = driveSpeed + turnSpeed;
-    double rightSpeed = driveSpeed - turnSpeed;
-		
-    this.driveMotorSubsystem.move(leftSpeed, rightSpeed);
-    SmartDashboard.putNumber("leftSpeed", leftSpeed); // 於 Dashboard 顯示左速度值
-    SmartDashboard.putNumber("rightSpeed", rightSpeed); // 於 Dashboard 顯示右速度值
+	double leftSpeed = driveSpeed + turnSpeed;
+	double rightSpeed = driveSpeed - turnSpeed;
+
+	this.driveSubsystem.move(leftSpeed, rightSpeed);
+	SmartDashboard.putNumber("LeftSpeed", leftSpeed);
+	SmartDashboard.putNumber("RightSpeed", rightSpeed);
 }
 ```
 
@@ -232,13 +228,14 @@ public boolean isFinished() {
 }
 ```
 
-7. 把 `DriveJoystickCmd.java` 寫入 `RobotContainer.java`
+7. 把 `DriveCmd.java` 寫入 `RobotContainer.java`
 ```java
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.DriveJoystickCmd;
-import frc.robot.subsystems.DriveMotorSubsystem;
+import frc.robot.commands.DriveCmd;
+import frc.robot.subsystems.DriveSubsystem;
 
 public class RobotContainer {
     private final GamepadJoystick joystick  = new GamepadJoystick(GamepadJoystick.CONTROLLER_PORT);

@@ -290,6 +290,27 @@ backLeft = 11;
 backRight = 12;
 ```
 
+## Spark Lib
+於 `robot` 資料夾創建 `lib` 資料夾並新增 `SwerveSpark.java`
+```java
+package frc.robot.lib;
+
+import com.revrobotics.CANSparkMax;
+
+import frc.robot.Constants.SwerveConstants;
+
+public class SwerveSpark extends CANSparkMax {
+    public SwerveSpark(int motorPort, boolean reverse) {
+        super(motorPort, MotorType.kBrushless);
+        this.restoreFactoryDefaults();
+        this.setInverted(reverse);
+        this.setIdleMode(IdleMode.kBrake);
+        this.setSmartCurrentLimit(SwerveConstants.MAX_VOLTAGE);
+    }
+}
+
+```
+
 ## Module 撰寫
 1. 以一個角塊為單位撰寫Module，先創建 **Drive** 和 **Turn** 馬達
 2. 創建Module所需物件

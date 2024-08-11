@@ -101,8 +101,9 @@ public final class Constants {
 
 ## 馬達控制 （僅一顆）
 ### CIM 馬達
-1. 於 `src\main\java\frc\robot\subsystems` 創建 `DriveMotorSubsystem.java` 用於控制馬達
-2. 引入函式庫
+1. 先安裝 [Phonix 6 Library](https://frc8725.github.io/FRC8725-Blog/?page=article&article=frc8725_software_edu&anchor=h-%E5%87%BD%E5%BC%8F%E5%BA%AB%E5%AE%89%E8%A3%9D) 再安裝 [Phonix 5 Library](https://frc8725.github.io/FRC8725-Blog/?page=article&article=frc8725_software_edu&anchor=h-%E5%87%BD%E5%BC%8F%E5%BA%AB%E5%AE%89%E8%A3%9D) (有安裝過就不用)
+2. 於 `src\main\java\frc\robot\subsystems` 創建 `Cim.java` 用於控制馬達
+3. 引入函式庫
 
 ```java
 package frc.robot.subsystems;
@@ -112,6 +113,7 @@ import com.ctre.phoenix.motorcontrol.VictorSPXControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.DeviceId;
 ```
@@ -120,65 +122,66 @@ import frc.robot.DeviceId;
 4. 寫入 移動 `move` 與停止 `stop` 方法
 
 ```java
-public class DriveMotorSubsystem extends SubsystemBase {
-    private final VictorSPX Motor;
-    private double speed_input;
+public class Cim extends SubsystemBase {
+    private final VictorSPX motor;
 
-    public DriveMotorSubsystem() {
-        this.Motor = new VictorSPX(DeviceId.CIM.motor);
+    public Cim() {
+        this.motor = new VictorSPX(DeviceId.CIM.motor);
         this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
         this.motor.configVoltageCompSaturation(15.0); // 電壓輸出百分比
         this.motor.setNeutralMode(NeutralMode.Brake); // Brake 停止後鎖住馬達, Coast 停止後保持慣性
-        this.Motor.setInverted(false); // 是否反轉
+        this.motor.setInverted(false); // 是否反轉
     }
 
-    public move(double speed) {
+    public void move(double speed) {
         this.motor.set(VictorSPXControlMode.PercentOutput, speed * Constants.MAX_DRIVE_SPEED);
         SmartDashboard.putNumber("CIM Speed", speed * Constants.MAX_DRIVE_SPEED); // 輸出速度到 SmartDashboard 
     }
 
-    public stop() {
+    public void stop() {
         this.motor.set(VictorSPXControlMode.PercentOutput, 0.0);
     }
 }
 ```
 
 ### NEO 馬達
-1. 於 `src\main\java\frc\robot\subsystems` 創建 `DriveMotorSubsystem.java` 用於控制馬達
-2. 引入函式庫
+1. 先安裝 [REVLib](https://frc8725.github.io/FRC8725-Blog/?page=article&article=frc8725_software_edu&anchor=h-%E5%87%BD%E5%BC%8F%E5%BA%AB%E5%AE%89%E8%A3%9D) (有安裝過就不用)
+2. 於 `src\main\java\frc\robot\subsystems` 創建 `Neo.java` 用於控制馬達
+3. 引入函式庫
 
 ```java
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMax.IdleMode;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkBase.IdleMode;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.DeviceId;
 ```
-3. 創建 `DriveMotorSubsystem` 類別, 以 CANSparkMax 宣告一顆 NEO 馬達
+3. 創建 `Neo` 類別, 以 CANSparkMax 宣告一顆 NEO 馬達
 4. 寫入 移動 `move` 與停止 `stop` 方法
 
 ```java
-public class DriveMotorSubsystem extends SubsystemBase {
+public class Neo extends SubsystemBase {
     private final CANSparkMax motor;
 
-    public DriveMotorSubsystem() {
-        this.motor = new CANSparkMax(DeviceId.NEO.motor, MotorType.kBrushless);
+    public Neo() {
+        this.motor = new CANSparkMax(DeviceId.Neo.motor, MotorType.kBrushless);
         this.motor.setSmartCurrentLimit(30); // 電流限制
         this.motor.setInverted(false);  // 是否反轉
         this.motor.setIdleMode(IdleMode.kBrake); // kBrake 停止後鎖住馬達, kCoast 停止後保持慣性
     }
 
-    public move(double speed) {
+    public void move(double speed) {
         this.motor.set(speed * Constants.MAX_DRIVE_SPEED);
-        SmartDashboard.putNumber("CIM Speed", speed * Constants.MAX_DRIVE_SPEED); // 輸出速度到 SmartDashboard 
+        SmartDashboard.putNumber("Neo Speed", speed * Constants.MAX_DRIVE_SPEED); // 輸出速度到 SmartDashboard 
     }
 
-    public stop() {
-        this.motor.set(0.0);
+    public void stop() {
+        this.motor.stopMotor();
     }
 }
 ```
@@ -186,17 +189,18 @@ public class DriveMotorSubsystem extends SubsystemBase {
 ### TalonFX 馬達
 又或者是 Falcon 馬達
 
-1. 於 `src\main\java\frc\robot\subsystems` 創建 `DriveMotorSubsystem.java` 用於控制馬達
-2. 引入函式庫
+1. 先安裝 [Phonix 6 Library](https://frc8725.github.io/FRC8725-Blog/?page=article&article=frc8725_software_edu&anchor=h-%E5%87%BD%E5%BC%8F%E5%BA%AB%E5%AE%89%E8%A3%9D) (有安裝過就不用)
+2. 於 `src\main\java\frc\robot\subsystems` 創建 `Talon.java` 用於控制馬達
+3. 引入函式庫
 
 ```java
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.DeviceId;
 ```
@@ -204,30 +208,29 @@ import frc.robot.DeviceId;
 4. 寫入 移動 `move` 與停止 `stop` 方法
 
 ```java
-public class DriveMotorSubsystem extends SubsystemBase {
+public class Talon extends SubsystemBase {
     private final TalonFX motor;
 
-    public DriveMotorSubsystem() {
+    public Talon() {
         this.motor = new TalonFX(DeviceId.Talon.motor);
-        this.motor.enableVoltageCompensation(true); // 是否啟用電壓補償
-        this.motor.configVoltageCompSaturation(30); // 電壓輸出百分比 
         this.motor.setInverted(false); // 是否反轉
-        this.motor.setNeutralMode(NeutralMode.Brake); // Brake 停止後鎖住馬達, Coast 停止後保持慣性
+        this.motor.setNeutralMode(NeutralModeValue.Brake); // Brake 停止後鎖住馬達, Coast 停止後保持慣性
     }
 
     public void move(double speed) {
-        SmartDashboard.putNumber("Speed", speed * Constants.MAX_DRIVE_SPEED);
-        this.motor.set(TalonFXControlMode.PercentOutput, speed * Constants.MAX_DRIVE_SPEED);
+        SmartDashboard.putNumber("Talon Speed", speed * Constants.MAX_DRIVE_SPEED);
+        this.motor.set(speed * Constants.MAX_DRIVE_SPEED);
     }
 
     public void stop() {
-        this.motor.set(TalonFXControlMode.PercentOutput, 0.0);
+        this.motor.stopMotor();
     }
 }
+
 ```
 
 ## 搖桿控制
-1. 於 `src\main\java\frc\robot\commands` 創建 `DriveJoystickCmd.java`
+1. 右鍵 `commands` 資料夾點 `create new class/command` 選 `command` 輸入 `MotorCmd`
 2. 引入函式庫
 
 ```java
@@ -235,23 +238,28 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.DriveMotorSubsystem;
+import frc.robot.subsystems.Cim;
+import frc.robot.subsystems.Neo;
+import frc.robot.subsystems.Talon;
 ```
 
 2. 宣告 subsystem 和搖桿函式庫
 
 ```java
 // 讓 class 以官方的 Command 函式庫擴充
-public class DriveJoystickCmd extends Command {
-    private final DriveMotorSubsystem driveMotorSubsystem;
-    private final XboxController controller;
+public class MotorCmd extends Command {
+	private final Cim cimSubsystem;
+	private final Neo neoSubsystem;
+	private final Talon talonSubsystem;
+	private final XboxController controller;
 
-    public DriveJoystickCmd(DriveMotorSubsystem driveMotorSubsystem, XboxController controller) {
-        this.driveMotorSubsystem = driveMotorSubsystem;
-        this.controller = controller;
-	
-	    addRequirements(this.driveMotorSubsystem);
-    }
+	public MotorCmd(Cim cimSubsystem, Neo neoSubsytem, Talon talonSubsystem, XboxController controller) {
+		this.cimSubsystem = cimSubsystem;
+		this.neoSubsystem = neoSubsytem;
+		this.talonSubsystem = talonSubsystem;
+		this.controller = controller;
+		this.addRequirements(this.cimSubsystem, this.neoSubsystem, this.talonSubsystem);
+	}
 }
 ```
 
@@ -268,12 +276,16 @@ public class DriveJoystickCmd extends Command {
     @Override
     public void execute() {
         double speed = this.controller.getLeftY();
-        this.driveMotorSubsystem.move(speed);
+        this.cimSubsystem.move(speed);
+		this.neoSubsystem.move(speed);
+		this.talonSubsystem.move(speed);
     }
 
     @Override
     public void end(boolean interrupted) {
-        this.driveMotorSubsystem.stopModules();
+        this.cimSubsystem.stop();
+		this.neoSubsystem.stop();
+		this.talonSubsystem.stop();
     }
 
     @Override
@@ -282,36 +294,44 @@ public class DriveJoystickCmd extends Command {
     }
 ```
 
-4. 找到 `RobotContainer.java` , 並且引入剛剛寫好的 `CommandSubsystem` 檔案, 以及 `GamepadJoystick()`
+4. 找到 `RobotContainer.java` , 並且引入剛剛寫好的 `Subsystem` 檔案, 以及 `GamepadJoystick`
 
 ```java
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.DriveJoystickCmd;
-import frc.robot.subsystems.DriveMotorSubsystem;
+import frc.robot.commands.MotorCmd;
+import frc.robot.subsystems.CimSubsystem;
+import frc.robot.subsystems.NeoSubsystem;
+import frc.robot.subsystems.TalonSubsystem;
 ```
 
 5. 宣告一個機構模組(Subsystem)與搖桿, 並在 Container 中進行搖　桿值的讀取傳入機構模組的函式中執行
 ```java
 public class RobotContainer {
-    private final GamepadJoystick joystick  = new GamepadJoystick(GamepadJoystick.CONTROLLER_PORT);
-    private final DriveMotorSubsystem driveMotorSubsystem = new DriveMotorSubsystem();
-    private final DriveJoystickCmd driveJoystickCmd = new DriveJoystickCmd(driveMotorSubsystem, joystick);
+	private final GamepadJoystick joystick = new GamepadJoystick(GamepadJoystick.CONTROLLER_PORT);
 
-    public RobotContainer() {
-	    this.driveMotorSubsystem.setDefaultCommand(this.driveJoystickCmd);
-        configureBindings();
-    }
+	private final CimSubsystem cimSubsystem = new CimSubsystem();
+	private final NeoSubsystem neoSubsystem = new NeoSubsystem();
+	private final TalonSubsystem talonSubsystem = new TalonSubsystem();
 
-    private void configureBindings() {
+	private final MotorCmd motorCmd = new MotorCmd(cimSubsystem, neoSubsystem, talonSubsystem, joystick);
+
+	public RobotContainer() {
+		this.cimSubsystem.setDefaultCommand(this.motorCmd);
+		this.neoSubsystem.setDefaultCommand(this.motorCmd);
+		this.talonSubsystem.setDefaultCommand(this.motorCmd);
+		this.configureBindings();
+	}
+
+	private void configureBindings() {
         // 按鈕綁定指令
     }
 
-    public Command getAutonomousCommand() {
-        // 自動階段
-	    return null;
-    }
+	public Command getAutonomousCommand() {
+		// 自動階段
+		return null;
+	}
 }
 ```
 
