@@ -2,7 +2,7 @@
 <!-- description: 控制 KOP 底盤 -->
 <!-- category: Programming -->
 <!-- tags: FRC8725 -->
-<!-- published time: 2024/03/18 -->
+<!-- published time: 2024/08/12 -->
 
 # KOP底盤撰寫
 使用 CIM（VictorSPX） 馬達為範例

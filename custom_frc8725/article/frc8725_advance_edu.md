@@ -2,7 +2,7 @@
 <!-- description: 函式說明與其他零件使用 -->
 <!-- category: Programming -->
 <!-- tags: FRC8725 -->
-<!-- published time: 2024/03/18 -->
+<!-- published time: 2024/08/12 -->
 
 # 進階內容
 ## 馬達配置
@@ -13,14 +13,14 @@
 * `setInverted(boolean)`: 設定正反轉
 * `setNeutralMode(NeutralMode)`: 設定馬達停止後狀態,  `kBrake` 停止後鎖住馬達, `kCoast` 停止後保持慣性
 * `configFactoryDefault()`: 將所有配置恢復為預設值
-* `set(VictorSPXControlMode.PercentOutput, double)`: 馬達運轉百分比 -1 ~ 1
+* `set(VictorSPXControlMode.PercentOutput, speed)`: 馬達運轉百分比 -1 ~ 1
 
 ### Phoneix6
 #### TalonFX（Falcon）
 * 大部分同上
-* `getSelectedSensorPosition()`: 取得馬達旋轉角度
-* `getSelectedSensorVelocity()`: 取得馬達速度
-* `set(TalonFXControlMode.PercentOutput, double)`: 馬達運轉百分比 -1 ~ 1
+* `getPosition().getValue()`: 取得馬達旋轉角度
+* `getVelocity().getValue()`: 取得馬達速度
+* `set(speed)`: 馬達運轉百分比 -1 ~ 1
 
 ### SparkMax（Neo）
 * `setSmartCurrentLimit(double)`:  限制馬達輸入最大電流
@@ -43,7 +43,7 @@
 public class DriveMotorModule {
     private final CANSparkMax motor;
 
-    private final RelativeEncoder mEncoder;
+    private final RelativeEncoder encoder;
 
     public DriveMotorModule(int motorPort, boolean reverse) {
         this.motor = new CANSparkMax(motorPort, MotorType.kBrushless);
@@ -51,8 +51,7 @@ public class DriveMotorModule {
         this.motor.setSmartCurrentLimit(30);
         this.motor.setInverted(reverse);
 
-        this.mEncoder = this.motor.getEncoder();
-
+        this.encoder = this.motor.getEncoder();
     }
 }
 ```
@@ -71,19 +70,18 @@ public class DriveMotorModule {
 ### AbsoluteEncoder
 #### 宣告方法
 在宣告馬達時同時宣告一個 `AbsoluteEncoder` 並把Encoder定義為Neo馬達外接的Encoder
-（模式為SparkMaxAbsoluteEncoder.Type.kDutyCycle）
+（模式為SparkAbsoluteEncoder.Type.kDutyCycle）
 ```java
 public class DriveMotorModule {
     private final CANSparkMax motor;
     private final AbsoluteEncoder absoluteEncoder;
-    private double speedOutput;
 
     public DriveMotorModule(int motorPort, boolean reverse) {
         this.motor = new CANSparkMax(motorPort, MotorType.kBrushless);
         this.motor.setIdleMode(IdleMode.kBrake);
         this.motor.setSmartCurrentLimit(30);
         this.motor.setInverted(reverse);
-        this.absoluteEncoder = this.motor.getAbsoluteEncoder(SparkMaxAbsoluteEncoder.Type.kDutyCycle);
+        this.absoluteEncoder = this.motor.getAbsoluteEncoder(SparkAbsoluteEncoder.Type.kDutyCycle);
     }
 }
 ```
@@ -119,7 +117,7 @@ public class DriveMotorModule {
 * `getVelocity` 讀取速度
 * `setPosition` 設定角度
 * 註：2024後在 `getPosition` 等會獲得數值的函式後需要增加 `.getValue`
-    * 例 `this.canCoder.getAbsolutePosition.getValue()`
+    * 例 `this.canCoder.getAbsolutePosition().getValue()`
 
 ## Commands指令類別
 ### Command Group
@@ -144,6 +142,7 @@ public class DriveMotorModule {
 ### 宣告方法
 1. 創建物件
 `NavX-micro` 在創建AHRS物件時Port為 `SerialPort.Port.kUSB`
+<br><br/>
 `NavX-MXP` Port為 `SPI.Port.kMXP` （一和二代都一樣）
 ```java
 public class DriveMotorSubsystem extends SubsystemBase{
