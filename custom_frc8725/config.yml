@@ -78,3 +78,7 @@ category:
     color:
       bright: '64, 178, 123'
       dark: '64, 178, 123'
+  - name: AI
+    color:
+      bright: '0, 102, 204'
+      dark: '70, 163, 255'
