@@ -6,9 +6,9 @@ timeZone: '+0800'
 timeFormat: '%Y/%m/%d'
 siteUrl: https://frc8725.github.io/FRC8725-Blog/
 
-twitter:
-  site: '@jhou5846'
-  creator: '@jhou5846'
+# twitter:
+#   site: '@jhou5846'
+#   creator: '@jhou5846'
 #! liker:
 #!   account: likerId
 
@@ -78,7 +78,7 @@ category:
     color:
       bright: '64, 178, 123'
       dark: '64, 178, 123'
-  - name: AI
+  - name: Artificial_Intelligence
     color:
-      bright: '0, 102, 204'
+      bright: '70, 102, 204'
       dark: '70, 163, 255'

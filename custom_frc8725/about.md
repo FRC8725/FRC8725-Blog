@@ -69,7 +69,7 @@
 		align-content: center;
 		justify-content: center;
 		align-items: center;
-		height: calc(var(--pageInnerHeight)*0.45);
+		height: calc(var(--pageInnerHeight)*0.55);
 		width: calc(19.8*var(--mw));
 		position: relative;
 		background: white;
@@ -99,25 +99,15 @@
 	}
 
 	@keyframes sh0 {
-	0% {
-		transform: rotate(0deg);
-	}
+		0% { transform: rotate(0deg);}
 
-	25% {
-		transform: rotate(7deg);
-	}
+		25% { transform: rotate(7deg); }
 
-	50% {
-		transform: rotate(-7deg);
-	}
+		50% { transform: rotate(-7deg); }
 
-	75% {
-		transform: rotate(1deg);
-	}
+		75% { transform: rotate(1deg); }
 
-	100% {
-		transform: rotate(0deg);
-	}
+		100% { transform: rotate(0deg); }
 	}
 
 	#aboutContent .cardBox > .card:hover span {
@@ -192,10 +182,11 @@
 		width: var(--pageInnerWidth);
 		height: calc(var(--pageInnerHeight)*0.1);
 		color: var(--text-color1);
-		text-shadow: calc(1*var(--mw)) calc(1*var(--mw)) calc(1*var(--mw)) #00000058;
+		text-shadow: calc(1*var(--mw)) calc(1*var(--mw)) calc(1*var(--mw)) #00000030;
 		font-size: calc(5*var(--mw));
 		font-family: 'Courier New', Courier, monospace;
 		text-align: center;
+		margin-bottom: calc(7*var(--mw));
 	}
 
 	@media screen and (max-width: 100vh) {

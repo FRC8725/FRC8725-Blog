@@ -29,15 +29,19 @@ Voltage Regulator Module（VRM）- 提供不同恆定電壓，用於自定義感
 ### CAN
 Controller Area Network（CAN）- 一種基於消息的協議，允許微控制器和設備彼此通信。
 
+一定要用WAGO弄好確定不會掉
+RoboRIO跟配電盤連接的CAN線建議用熱溶膠塗起來
+
 ### RPM
 REV Radio Power Module 用來幫 Radio 供電，帶有兩個插座式RJ45連接器的18V被動式POE
 
 ![](image/articleImage/electricity_edu/image3.wm.png)
 
 ## 線路連接
+Radio跟交換機不要疊起來訊號會互相干擾導致斷線
+
 <span style="color: #e06c53">**接線之前需要先想好走線**
 這很重要，否則線會不夠長</span>
-
 線路需緊貼平面使用束帶或是其他固定器固定
 轉向時以 90度或 45度旋轉並且固定轉彎處
 優先使用 Wago

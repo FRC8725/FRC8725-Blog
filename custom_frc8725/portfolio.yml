@@ -3,12 +3,12 @@ works:
   data:
     - name: 2023 ChargeUp
       link: https://github.com/FRC8725/2023-Robot
-      description: 仿生夾爪機器人 Erebos 
+      description: Erebos -- See you in Hawaii
       coverPath: <?=customDirPath?>/image/portfolioCover/Erebos.jpg
 
     - name: 2024 Crescendo
       link: https://github.com/FRC8725/2024-Robot
-      description: 超級土炮機器人 Chaos
+      description: Chaos -- See you in Türkiye
       coverPath: <?=customDirPath?>/image/portfolioCover/Chaos.jpg
 
 videos:
