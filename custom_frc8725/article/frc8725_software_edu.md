@@ -348,11 +348,48 @@ public class RobotContainer {
 
 #### 使用 Windows 批次檔
 1. 在隨意路徑下創建一個資料夾
-2. 創建並編輯兩個bat檔, 負責開和關防火牆
-
-開啟防火牆：`netsh advfirewall set allprofile state on`
-
-關閉防火牆：`netsh advfirewall set allprofile state off`
+2. 創建並編輯一個bat檔, 負責切換防火牆開關
+3. 輸入以下內容
+```bat
+@echo off
+color 0B
+cls
+echo ==============================
+echo      Toggle Firewall  
+echo ==============================
+echo Checking firewall status...
+ping 127.0.0.1 -n 2 >nul
+echo.
+echo Please wait...
+netsh advfirewall show allprofiles state | find "ON" >nul
+if %errorlevel%==0 (
+    echo.
+    echo Firewall is currently ON.
+    echo Turning it OFF...
+    netsh advfirewall set allprofile state off
+    echo.
+    color 0C
+    echo Firewall is now OFF.
+) else (
+    echo.
+    echo Firewall is currently OFF.
+    echo Turning it ON...
+    netsh advfirewall set allprofile state on
+    echo.
+    color 0A
+    echo Firewall is now ON.
+)
+ping 127.0.0.1 -n 2 >nul
+echo.
+echo ==============================
+echo Current Firewall Status:
+netsh advfirewall show allprofiles state
+echo ==============================
+echo.
+echo Closing ...
+timeout /t 2 /nobreak >nul
+exit
+```
 
 ![](image/articleImage/software_edu/image6.wm.png)
 
