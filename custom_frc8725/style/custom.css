@@ -44,6 +44,22 @@
 		radial-gradient(circle at 100% -1.5vw, rgba(var(--category-color), 0.4) 5.25vw, transparent 5.25vw);
 	background-color: var(--box-backgroundColor);
 }
+
+#pageSwitcher .page li {
+	color: var(--text-color1);
+	font-size: 1.0vw;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 2.7vw;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#pageSwitcher .page li:hover {
+    overflow: visible;
+}
+
 article > .category {
 	background-color: rgb(var(--category-color));
 }
@@ -100,10 +116,4 @@ article > .content pre.codeBlock {
 	border-radius: 0.5vw;
 }
 
-#pageSwitcher .page li {
-	color: var(--text-color1);
-	font-size: 1.0vw;
-	font-weight: bold;
-	cursor: pointer;
-	line-height: 2.7vw;
-}
+

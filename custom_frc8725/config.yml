@@ -43,7 +43,7 @@ switches:
     text: Copy RSS
   backgroundMusic:
     text: BG Music
-    path: audio/music.wav
+    path: audio/lofi.wav
     volume: 0.5
   darkMode:
     text: Dark Mode
