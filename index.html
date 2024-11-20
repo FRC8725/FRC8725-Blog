@@ -36,6 +36,7 @@
 	<link rel="stylesheet" href="public/style/articleContent.css" />
 	<link rel="stylesheet" href="custom_frc8725/style/custom.css" />
 	<link rel="alternate" type="application/rss+xml" title="RSS Feed for FRC8725's Blog" href=".rss" />
+
 	<script src="public/script/basic.js"></script>
 	<script src="public/script/clickAnimation.js"></script>
 	<script src="public/script/floatAlert.js"></script>
@@ -46,6 +47,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/marked-highlight/lib/index.umd.js"></script>
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css"> -->
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dark.min.css"> -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 	<script>
 		const TITLE = `FRC8725's Blog`;
@@ -58,7 +63,9 @@
 			'Crescendo': {bright: `64, 178, 123`, dark: `64, 178, 123`}, 
 			'Artificial_Intelligence': {bright: `70, 102, 204`, dark: `70, 163, 255`}, 
 		};
+		
 	</script>
+
 </head>
 <body>
 	<canvas id="bgAniCvs"></canvas>

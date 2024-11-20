@@ -4,3 +4,6 @@
 - Rendered blog
 - Uplaod Electronics
 - Upload 2024 portfolio Digtal Animation Award
+
+2024/11/20
+- Able to render latex in blog

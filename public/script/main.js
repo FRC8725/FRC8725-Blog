@@ -118,6 +118,7 @@ var dataLoaded = () => {};
 					}
 				}
 			});
+
 			htmlContent = container.innerHTML;
 		}
 		return htmlContent;
@@ -133,6 +134,7 @@ var dataLoaded = () => {};
 		searchInput.value = '';
 		slidesPlayerBox.innerHTML = '';
 		generatePage();
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub, main]);
 	}
 	document.title = $_GET['page'] ? `${TITLE} - ${$_GET['page'][0].toUpperCase()}${$_GET['page'].split('').slice(1).join('')}` : `${TITLE} - Home`;
 	$$('[data-href]').forEach(element => element.addEventListener('click', function(){
@@ -339,6 +341,7 @@ var dataLoaded = () => {};
 	}
 	function failedPage(){
 		main.innerHTML = '<article class="row" style="border-width: 0px;"><h1 class="title" style="color: var(--text-color3);">The page you are looking for does not exist.</h1></article>';
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub, main]);
 	}
 	function generatePage(){
 		dataLoaded = () => {};
@@ -368,6 +371,7 @@ var dataLoaded = () => {};
 				$(`#${pageId}`).checked = true;
 			}
 		}
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub, main]);
 		if($_GET['page'] == undefined || $_GET['page'] == 'home'){
 			if(!tabNow('tab-home')){failedPage(); return;}
 			asidePageNow('pageRadio-filter');
