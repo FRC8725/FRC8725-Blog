@@ -1,7 +1,7 @@
-<!-- title: FRC8725 Yolo模型訓練與物件辨識 -->
+<!-- title: Yolo模型訓練與物件辨識 -->
 <!-- description: 使用Yolov5、v8訓練模型以及應用 -->
 <!-- category: Artificial_Intelligence -->
-<!-- tags: FRC8725 -->
+<!-- tags: Other -->
 <!-- published time: 2024/09/28 -->
 
 # YOLO模型是什麼?

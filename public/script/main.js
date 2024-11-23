@@ -303,17 +303,6 @@ var dataLoaded = () => {};
 				}
 			});
 		}
-		if(data?.article?.archives){
-			let archiveButtons = $('#archiveButtons');
-			if(archiveButtons){
-				for(let archiveName in data.article.archives){
-					let button = $e('button');
-					button.innerText = archiveName;
-					button.addEventListener('click', () => {goto(`?page=articles&archive=${archiveName}`);});
-					archiveButtons.appendChild(button);
-				}
-			}
-		}
 		if(data?.article?.categories){
 			let categoryButtons = $('#categoryButtons');
 			if(categoryButtons){
@@ -323,6 +312,17 @@ var dataLoaded = () => {};
 					setCategoryColorProperty(button, categoryName);
 					button.addEventListener('click', () => {goto(`?page=articles&category=${categoryName}`);});
 					categoryButtons.appendChild(button);
+				}
+			}
+		}
+		if(data?.article?.archives){
+			let archiveButtons = $('#archiveButtons');
+			if(archiveButtons){
+				for(let archiveName in data.article.archives){
+					let button = $e('button');
+					button.innerText = archiveName;
+					button.addEventListener('click', () => {goto(`?page=articles&archive=${archiveName}`);});
+					archiveButtons.appendChild(button);
 				}
 			}
 		}
@@ -656,7 +656,6 @@ var dataLoaded = () => {};
 							});
 						}
 					});
-					
 					let useFilter = false;
 					let keywordRegExp;
 					if($_GET['search']){
@@ -738,38 +737,38 @@ var dataLoaded = () => {};
 					if($_GET['start'] && parseInt($_GET['start']).toString() === $_GET['start']){
 						startAt = parseInt($_GET['start']);
 					}
-					for (let categoryData of categoryDatas) {
-						console.log(categoryData);
+					// for (let categoryData of categoryDatas) {
+					// 	console.log(categoryData);
 						
-						let category = $e('category'),
-							title = $e('h1');
+					// 	let category = $e('category'),
+					// 		title = $e('h1');
 
-						category.className = 'closed row';
-						category.addEventListener('click', () => {
-							if(category.className.includes('closed')){
-								goto(`?page=articles&category=${categoryData.Name}`);
-							}
-						});
-						title.className = 'title';
-						title.textContent = categoryData.Name;
-    					category.appendChild(title);
+					// 	category.className = 'closed row';
+					// 	category.addEventListener('click', () => {
+					// 		if(category.className.includes('closed')){
+					// 			goto(`?page=articles&category=${categoryData.Name}`);
+					// 		}
+					// 	});
+					// 	title.className = 'title';
+					// 	title.textContent = categoryData.Name;
+    				// 	category.appendChild(title);
 
-						if(!useFilter){
-							let timePoint = $e('div');
-							timePoint.className = 'timePoint';
-							category.appendChild(timePoint);
-						}
-						main.appendChild(category);
+					// 	if(!useFilter){
+					// 		let timePoint = $e('div');
+					// 		timePoint.className = 'timePoint';
+					// 		category.appendChild(timePoint);
+					// 	}
+					// 	main.appendChild(category);
 	
-						let listItem = $e('li');
-						listItem.for = category;
-						listItem.innerText = categoryData.Name;
-						listItem.addEventListener('click', () => {
-							let articleRect = category.getBoundingClientRect();
-							window.scroll(0, articleRect.y + window.scrollY);
-						});
-						outlineList.appendChild(listItem);
-					}
+					// 	let listItem = $e('li');
+					// 	listItem.for = category;
+					// 	listItem.innerText = categoryData.Name;
+					// 	listItem.addEventListener('click', () => {
+					// 		let articleRect = category.getBoundingClientRect();
+					// 		window.scroll(0, articleRect.y + window.scrollY);
+					// 	});
+					// 	outlineList.appendChild(listItem);
+					// }
 					for(let articleData of articleDatas.slice(startAt, startAt + articlesPerPage)){
 						let article = $e('article'), 
 							title = $e('h1'), 

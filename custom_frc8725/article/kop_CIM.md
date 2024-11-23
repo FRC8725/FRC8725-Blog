@@ -1,7 +1,7 @@
 <!-- title: CIM KOP底盤撰寫 -->
 <!-- description: 控制 KOP 底盤 -->
 <!-- category: KOP -->
-<!-- tags: FRC8725 -->
+<!-- tags: Programming -->
 <!-- published time: 2024/08/12 -->
 
 # KOP底盤撰寫

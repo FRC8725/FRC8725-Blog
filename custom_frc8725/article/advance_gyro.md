@@ -1,7 +1,7 @@
 <!-- title: 進階內容 Gyro -->
 <!-- description: Gyro -->
 <!-- category: Advance -->
-<!-- tags: FRC8725 -->
+<!-- tags: Programming -->
 <!-- published time: 2024/03/23 -->
 
 ## 陀螺儀（Gyro）

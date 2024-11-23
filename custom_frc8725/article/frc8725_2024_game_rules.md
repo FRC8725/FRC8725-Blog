@@ -1,7 +1,7 @@
 <!-- title: FRC8725 2024規則整理 -->
 <!-- description: 2024賽季規則整理 -->
 <!-- category: Crescendo-->
-<!-- tags: FRC8725 -->
+<!-- tags: RULE -->
 <!-- published time: 2024/01/08 -->
 
 # 2024 Crescendo Game Rules

@@ -1,7 +1,7 @@
 <!-- title: FRC8725 軟體培訓教學 - PathPlanner -->
 <!-- description: PathPlanner教學(NeoSwerve) -->
 <!-- category: Advance -->
-<!-- tags: FRC8725 -->
+<!-- tags: Programming -->
 <!-- published time: 2024/03/23 -->
 
 # PathPlanner教學

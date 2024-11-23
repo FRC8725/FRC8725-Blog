@@ -1,7 +1,7 @@
 <!-- title: Swerve 總覽 -->
 <!-- description: 控制 Swerve 底盤 -->
 <!-- category: Swerve -->
-<!-- tags: FRC8725 -->
+<!-- tags: Programming -->
 <!-- published time: 2024/11/21 -->
 
 # Swerve總覽
