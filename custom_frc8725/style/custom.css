@@ -73,7 +73,7 @@ article > .category {
 }
 
 #pageSwitcher .page {
-	--page-height: calc(100vh - 10vw - var(--pageSwitcher-height) - 12vw);
+	--page-height: calc(100vh - var(--pageSwitcher-height) - 19vw);
 }
 
 article > .cover, 

@@ -43,7 +43,7 @@ switches:
     text: Copy RSS
   backgroundMusic:
     text: BG Music
-    path: audio/lofi.wav
+    path: audio/RickRoll.webm
     volume: 0.5
   darkMode:
     text: Dark Mode

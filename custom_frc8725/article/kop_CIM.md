@@ -1,7 +1,7 @@
-<!-- title: FRC8725 軟體培訓教學 - KOP底盤 -->
+<!-- title: CIM KOP底盤撰寫 -->
 <!-- description: 控制 KOP 底盤 -->
-<!-- category: Programming -->
-<!-- tags: FRC8725 -->
+<!-- category: KOP -->
+<!-- tags: Programming -->
 <!-- published time: 2024/08/12 -->
 
 # KOP底盤撰寫
