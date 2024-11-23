@@ -103,4 +103,4 @@ public class SwerveModule implements IDashboardProvider {
 }
 ```
 
-<br>[>> 下一章 <<](?page=article&article=swerve_04)
+<br><a next_article="swerve_04">>> 下一章 <<</a>

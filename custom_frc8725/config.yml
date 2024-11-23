@@ -59,26 +59,32 @@ pages:
   outline:
     text: Outline
 
-category:
+tag:
   - name: Programming
     color:
-      bright: '143, 170, 220'
-      dark: '113, 140, 190'
+      bright: '112, 140, 188'
+      dark: '79, 98, 131'
 
-  - name: Electronics
-    color:
-      bright: '255, 217, 98'
-      dark: '255, 217, 98'
+category:
+  # - name: Programming
+  #   color:
+  #     bright: '143, 170, 220'
+  #     dark: '113, 140, 190'
 
-  - name: Activity
-    color:
-      bright: '222, 170, 166'
-      dark: '192, 140, 136'
-  - name: Crescendo
-    color:
-      bright: '64, 178, 123'
-      dark: '64, 178, 123'
-  - name: Artificial_Intelligence
-    color:
-      bright: '70, 102, 204'
-      dark: '70, 163, 255'
+  # - name: Electronics
+  #   color:
+  #     bright: '255, 217, 98'
+  #     dark: '255, 217, 98'
+
+  # - name: Activity
+  #   color:
+  #     bright: '222, 170, 166'
+  #     dark: '192, 140, 136'
+  # - name: Crescendo
+  #   color:
+  #     bright: '64, 178, 123'
+  #     dark: '64, 178, 123'
+  # - name: Artificial_Intelligence
+  #   color:
+  #     bright: '70, 102, 204'
+  #     dark: '70, 163, 255'

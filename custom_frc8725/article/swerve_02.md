@@ -31,4 +31,4 @@ public class SwerveSpark extends CANSparkMax {
 
 * `MAX_VOLTAGE` 會在常數設置才設定
 
-<br>[>> 下一章 <<](?page=article&article=swerve_03)
+<br><a next_article="swerve_03">>> 下一章 <<</a>

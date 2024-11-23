@@ -68,7 +68,6 @@ def process(customDirPath, dataDirPath):
         if not archives.get(articleData['archive']): archives[articleData['archive']] = []
         # archives[articleData['archive']].append(articlePath)
 
-
     articleDatas = sorted(articleDatas, key=(lambda articleData: datetime.strptime(articleData['publishedTime'], timeFormat)), reverse=False)
 
     outputData = {

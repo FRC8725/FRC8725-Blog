@@ -22,4 +22,4 @@
 ### Relatively Felid (相對場地運動)
 以機器人前方當作正向，類似KOP控制
 
-<br>[>> 下一章 <<](?page=article&article=swerve_02)
+<br><a class="articleSwitcher" next_article="swerve_02">>> 下一章 <<</a>

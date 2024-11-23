@@ -106,4 +106,4 @@ public SwerveModulePosition getPosition() {
 }
 ```
 
-<br>[>> 下一章 <<](?page=article&article=swerve_07)
+<br><a next_article="swerve_07">>> 下一章 <<</a>

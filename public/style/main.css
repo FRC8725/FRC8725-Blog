@@ -2,6 +2,10 @@
 	--category-colorBright: unset;
 	--category-colorDark: unset;
 	--category-color: var(--category-colorBright);
+
+	--tag-colorBright: unset;
+	--tag-colorDark: unset;
+	--tag-color: var(--tag-colorBright);
 	margin: 0px;
 	padding: 0px;
 	outline: none;
@@ -14,6 +18,7 @@
 }
 :root[theme="dark"] * {
 	--category-color: var(--category-colorDark);
+	--tag-color: var(--tag-colorDark);
 }
 *::-webkit-scrollbar {
 	--scrollbar-size: 0.1vw;
@@ -45,6 +50,7 @@
 	--labelHovered-background: #00000011;
 	--aside-borderColor: #00000000;
 	--defaultCategory-color: #c1c1c1;
+	--defaultTag-color: #c1c1c1;
 	--searchMark-background: #c9e7f5;
 	--tabIcon-filter: grayscale(1) brightness(0);
 	--infoIcon-filter: grayscale(1) brightness(0) opacity(0.5);
@@ -65,6 +71,7 @@
 	--labelHovered-background: #ffffff11;
 	--aside-borderColor: #ffffff55;
 	--defaultCategory-color: #787878;
+	--defaultTag-color: #787878;
 	--searchMark-background: #516d7b;
 	--tabIcon-filter: grayscale(1) brightness(100);
 	--infoIcon-filter: grayscale(1) brightness(100) opacity(0.5);
@@ -406,6 +413,11 @@ aside[visible] {
 #pageSwitcher .page #categoryButtons.buttons > button {
 	background-color: unset;
 	background: linear-gradient(150deg, var(--box-backgroundColor) 60%, var(--category-color) 80%);
+}
+
+#pageSwitcher .page #tagButtons.buttons > button {
+	background-color: unset;
+	background: linear-gradient(150deg, var(--box-backgroundColor) 60%, var(--tag-color) 80%);
 }
 
 main {

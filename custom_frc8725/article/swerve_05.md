@@ -123,4 +123,4 @@ public final class DeviceId {
 }
 ```
 
-<br>[>> 下一章 <<](?page=article&article=swerve_06)
+<br><a next_article="swerve_06">>> 下一章 <<</a>

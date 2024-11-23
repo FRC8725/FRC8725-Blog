@@ -21,9 +21,11 @@
 }
 :root * {
 	--defaultCategory-color: 193, 193, 193;
+	--defaultTag-color: 193, 193, 193;
 }
 :root[theme="dark"] * {
 	--defaultCategory-color: 120, 120, 120;
+	--defaultTag-color: 120, 120, 120;
 }
 
 #badgeDescription {
@@ -42,6 +44,13 @@
 	background: 
 		radial-gradient(circle at 100% -1.5vw, rgba(var(--category-color), 0.4) 3.5vw, transparent 3.5vw), 
 		radial-gradient(circle at 100% -1.5vw, rgba(var(--category-color), 0.4) 5.25vw, transparent 5.25vw);
+	background-color: var(--box-backgroundColor);
+}
+
+#pageSwitcher .page #tagButtons.buttons > button {
+	background: 
+		radial-gradient(circle at 100% -1.5vw, rgba(var(--tag-color), 0.4) 3.5vw, transparent 3.5vw), 
+		radial-gradient(circle at 100% -1.5vw, rgba(var(--tag-color), 0.4) 5.25vw, transparent 5.25vw);
 	background-color: var(--box-backgroundColor);
 }
 
@@ -64,17 +73,24 @@ article > .category {
 	background-color: rgb(var(--category-color));
 }
 .filterBar {
-	background: linear-gradient(to bottom, rgb(var(--category-color)), var(--labelHovered-background));
+	background: linear-gradient(to bottom, 
+		rgb(var(--category-color, var(--tag-color))), 
+		var(--labelHovered-background)
+	);
 }
 @media screen and (max-width: 100vh) {
 	.filterBar {
-		background: linear-gradient(to right, rgb(var(--category-color)), var(--labelHovered-background));
+		background: linear-gradient(to right, 
+			rgb(var(--category-color, var(--tag-color))), 
+			var(--labelHovered-background)
+		);
 	}
 }
 
 #pageSwitcher .page {
 	--page-height: calc(100vh - var(--pageSwitcher-height) - 19vw);
 }
+
 
 article > .cover, 
 article > .category {

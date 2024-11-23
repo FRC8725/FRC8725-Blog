@@ -142,13 +142,23 @@ var dataLoaded = () => {};
 	}));
 	window.addEventListener('popstate', () => {goto();});
 
+	main.addEventListener('click', event => {
+		let next_article = event.target.getAttribute('next_article')
+		if (next_article) {
+			goto(`?page=article&article=${next_article}`);
+		}
+	});
+
 	const styleToTopPath = new Array((($('#mainCss') || $('link[rel="stylesheet"]'))?.getAttribute('href')?.split(/\\|\//g)?.filter(s => s.length > 0)?.length || 1) - 1).fill('..').join('/');
 
-	function setCategoryColorProperty(categoryElement, categoryName){
-		var colorData = categoryName in CATEGORY_COLORS ? CATEGORY_COLORS[categoryName] : {bright: 'var(--defaultCategory-color)', dark: 'var(--defaultCategory-color)'};
-		categoryElement.style.setProperty('--category-colorBright', colorData.bright);
-		categoryElement.style.setProperty('--category-colorDark', colorData.dark);
+	function setElementColorProperty(element, name, COLORS = CATEGORY_COLORS, type = 'Category') {
+		var colorData = name in COLORS ? COLORS[name] : {bright: `var(--default${type}-color)`, dark: `var(--default${type}-color)`};
+		element.style.setProperty(`--${type.toLowerCase()}-colorBright`, colorData.bright);
+		element.style.setProperty(`--${type.toLowerCase()}-colorDark`, colorData.dark);
 	}
+
+	// --tag-colorBright: 143, 170, 220; --tag-colorDark: 113, 140, 190;
+	// --category-colorBright: 255, 217, 98; --category-colorDark: 255, 217, 98;
 
 	const bgAniSettings = () => {return{
 		cvs: $('#bgAniCvs'), 
@@ -309,7 +319,7 @@ var dataLoaded = () => {};
 				for(let categoryName in data.article.categories){
 					let button = $e('button');
 					button.innerText = categoryName;
-					setCategoryColorProperty(button, categoryName);
+					setElementColorProperty(button, categoryName);
 					button.addEventListener('click', () => {goto(`?page=articles&category=${categoryName}`);});
 					categoryButtons.appendChild(button);
 				}
@@ -326,12 +336,14 @@ var dataLoaded = () => {};
 				}
 			}
 		}
+
 		if(data?.article?.tags){
 			let tagButtons = $('#tagButtons');
 			if(tagButtons){
 				for(let tagName in data.article.tags){
 					let button = $e('button');
 					button.innerText = tagName;
+					setElementColorProperty(button, tagName, TAG_COLORS, 'Tag');
 					button.addEventListener('click', () => {goto(`?page=articles&tags=${tagName}`);});
 					tagButtons.appendChild(button);
 				}
@@ -341,7 +353,7 @@ var dataLoaded = () => {};
 	}
 	function failedPage(){
 		main.innerHTML = '<article class="row" style="border-width: 0px;"><h1 class="title" style="color: var(--text-color3);">The page you are looking for does not exist.</h1></article>';
-		MathJax.Hub.Queue(["Typeset", MathJax.Hub, main]);
+
 	}
 	function generatePage(){
 		dataLoaded = () => {};
@@ -420,7 +432,7 @@ var dataLoaded = () => {};
 						if(articleData.category){
 							let category = $e('p');
 							category.className = 'category';
-							setCategoryColorProperty(category, articleData.category);
+							setElementColorProperty(category, articleData.category);
 							category.innerText = articleData.category;
 							category.addEventListener('click', event => {
 								event.stopPropagation();
@@ -524,7 +536,7 @@ var dataLoaded = () => {};
 						if(articleData.category){
 							let category = $e('p');
 							category.className = 'category';
-							setCategoryColorProperty(category, articleData.category);
+							setElementColorProperty(category, articleData.category);
 							category.innerText = articleData.category;
 							category.addEventListener('click', () => {goto(`?page=articles&category=${articleData.category}`);});
 							article.appendChild(category);
@@ -713,7 +725,10 @@ var dataLoaded = () => {};
 						filterRotateBox.className = 'filterRotateBox';
 						filterBar.appendChild(filterRotateBox);
 						filterBar.className = 'filterBar';
-						setCategoryColorProperty(filterBar, $_GET['category']);
+						let elementName, elementColor, elementType;
+						[elementName, elementColor, elementType] = $_GET['category'] ?  [$_GET['category'], CATEGORY_COLORS, 'Category'] : [$_GET['tags'], TAG_COLORS, 'Tag'];
+						setElementColorProperty(filterBar, elementName, elementColor, elementType);
+
 						main.appendChild(filterBar);
 						[['category', $_GET['category']], ['tags', $_GET['tags']], ['search', $_GET['search']], ['archive', $_GET['archive']]].forEach(data => {
 							if(data[1] == undefined) return;
