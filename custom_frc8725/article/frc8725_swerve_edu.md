@@ -1,6 +1,6 @@
 <!-- title: FRC8725 軟體培訓教學 - Swerve底盤 -->
 <!-- description: 控制 Swerve 底盤 -->
-<!-- category: Programming -->
+<!-- category: Swerve -->
 <!-- tags: FRC8725 -->
 <!-- published time: 2024/03/23 -->
 

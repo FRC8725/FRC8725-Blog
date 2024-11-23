@@ -639,6 +639,24 @@ var dataLoaded = () => {};
 					outline.appendChild(outlineList);
 	
 					let articleDatas = data.article.articleDatas;
+					let categoryDatas = [];
+					for (let category in data.article.categories) {
+						categoryDatas.push({ 
+							Name: category,
+							articles: []
+						});
+					}
+					articleDatas.forEach(article => {
+						let categoryObj = categoryDatas.find(item => item.Name === article.category);
+					
+						if (categoryObj) {
+							categoryObj.articles.push({
+								title: article.title,
+								description: article.description
+							});
+						}
+					});
+					
 					let useFilter = false;
 					let keywordRegExp;
 					if($_GET['search']){
@@ -698,7 +716,7 @@ var dataLoaded = () => {};
 						filterBar.className = 'filterBar';
 						setCategoryColorProperty(filterBar, $_GET['category']);
 						main.appendChild(filterBar);
-						[['search', $_GET['search']], ['archive', $_GET['archive']], ['category', $_GET['category']], ['tags', $_GET['tags']]].forEach(data => {
+						[['category', $_GET['category']], ['tags', $_GET['tags']], ['search', $_GET['search']], ['archive', $_GET['archive']]].forEach(data => {
 							if(data[1] == undefined) return;
 							let filterBox = $e('div'), 
 								filterTitle = $e('h2'), 
@@ -720,10 +738,42 @@ var dataLoaded = () => {};
 					if($_GET['start'] && parseInt($_GET['start']).toString() === $_GET['start']){
 						startAt = parseInt($_GET['start']);
 					}
+					for (let categoryData of categoryDatas) {
+						console.log(categoryData);
+						
+						let category = $e('category'),
+							title = $e('h1');
+
+						category.className = 'closed row';
+						category.addEventListener('click', () => {
+							if(category.className.includes('closed')){
+								goto(`?page=articles&category=${categoryData.Name}`);
+							}
+						});
+						title.className = 'title';
+						title.textContent = categoryData.Name;
+    					category.appendChild(title);
+
+						if(!useFilter){
+							let timePoint = $e('div');
+							timePoint.className = 'timePoint';
+							category.appendChild(timePoint);
+						}
+						main.appendChild(category);
+	
+						let listItem = $e('li');
+						listItem.for = category;
+						listItem.innerText = categoryData.Name;
+						listItem.addEventListener('click', () => {
+							let articleRect = category.getBoundingClientRect();
+							window.scroll(0, articleRect.y + window.scrollY);
+						});
+						outlineList.appendChild(listItem);
+					}
 					for(let articleData of articleDatas.slice(startAt, startAt + articlesPerPage)){
 						let article = $e('article'), 
 							title = $e('h1'), 
-							info = $e('p'), 
+							info = $e('p'),
 							publishedTime = $e('span');
 						article.className = 'closed row';
 						article.addEventListener('click', () => {

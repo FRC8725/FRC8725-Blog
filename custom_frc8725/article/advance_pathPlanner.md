@@ -1,5 +1,5 @@
-<!-- title: FRC8725 軟體培訓教學 - PathPlanner -->
-<!-- description: PathPlanner教學(NeoSwerve) -->
+<!-- title: 進階內容 PathPlanner -->
+<!-- description: PathPlanner -->
 <!-- category: Advance -->
 <!-- tags: FRC8725 -->
 <!-- published time: 2024/03/23 -->
@@ -11,11 +11,11 @@
 1. 先開一個Project，他會在deploy新增一個PathPlanner資料夾
 2. 設定機器長寬、速度限制等
 
-![](image/articleImage/pathplanner_edu/image1.wm.png)
+![](../public/articleImage/pathplanner_edu/image1.wm.png)
 
 ## Path
-1. 在Paths按+後可新增路徑
-2. 功能說明
+<span>1. 在Paths按+後可新增路徑</span>
+<span>2. 功能說明</span>
 
 > `Waypoints` 所有點的設定(x, y, handing)
 
@@ -27,39 +27,40 @@
 
 ## Auto
 在畫完幾張Path後可將這些Path串接起來並且在中間穿插特定Command
-1. 先新增一個Auto
-2. `Start Point` 可設定開始位置
-3. `Sequential Group` 可串接Path和Command
+<span>1. 先新增一個Auto</span>
+<span>2. `Start Point` 可設定開始位置</span>
+<span>3. `Sequential Group` 可串接Path和Command</span>
 
 > `Follow Path` Path畫的圖
 
 > `Named Command` 自訂Command
 
 ## Code
-1. 安裝Lib
+<span>1. 安裝Lib</span>
+
 ```java
 https://3015rangerrobotics.github.io/pathplannerlib/PathplannerLib.json
 ```
 
-2. 創建兩個**陣列**
+<span>2. 創建兩個**陣列**</span>
 
 > `SwerveModuleState` 取得四個角塊狀態
 
 > `SwerveModulePosition` 取得四個角塊角度
 
-3. 創建 `SwerveDriveOdometry` 物件
-4. 創建一個Function和一個方法分別為取得Pose和resetPose
+<span>3. 創建 `SwerveDriveOdometry` 物件</span>
+<span>4. 創建一個Function和一個方法分別為取得Pose和resetPose</span>
 
 > `getPoseMeters` 回傳機器人在場上的位置
 
 > `resetPosition` 重製機器人的Pose
 
-5. 在 `perodic` 裡 update `odometry` (可用Override)
-6. 創建一個 `ChassisSpeeds` 的Function (取得底盤速度)
+<span>5. 在 `perodic` 裡 update `odometry` (可用Override)</span>
+<span>6. 創建一個 `ChassisSpeeds` 的Function (取得底盤速度)</span>
 
 > `Kinematics.toChassisSpeeds` 獲得底盤x, y, rotation速度
 
-7. 使用 `AutoBuilder.configureHolonomic` 設定所需資料
+<span>7. 使用 `AutoBuilder.configureHolonomic` 設定所需資料</span>
 
 > `poseSupplier` 要取得機器人當前位置
 
@@ -72,6 +73,7 @@ https://3015rangerrobotics.github.io/pathplannerlib/PathplannerLib.json
 > `config` 創建 `HolonomicPathFollowerConfig` 裡面設定最大速度、機器人中心至角快距離、是否重新規畫路徑設定
 
 > `shouldFlipPath` 紅藍方翻轉路徑
+
 ```java
 () -> {
     var alliance = DriverStation.getAlliance();
@@ -85,6 +87,7 @@ https://3015rangerrobotics.github.io/pathplannerlib/PathplannerLib.json
 
 ## Run
 在 `RobotContainer` 的 `getAutonomousCommand`<br>
+
 ```java
 return new PathPlannerAuto("路徑名稱")
 ```

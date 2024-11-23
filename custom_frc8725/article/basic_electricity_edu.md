@@ -1,6 +1,6 @@
-<!-- title: FRC8725 軟體培訓教學 - 機電整合 -->
+<!-- title: 軟體培訓教學 - 機電整合 -->
 <!-- description: 配電與整線 -->
-<!-- category: Electronics -->
+<!-- category: Basic -->
 <!-- tags: FRC8725 -->
 <!-- published time: 2024/03/16 -->
 

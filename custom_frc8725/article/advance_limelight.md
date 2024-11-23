@@ -1,28 +1,32 @@
-<!-- title: FRC8725 軟體培訓教學 - Limelight撰寫 -->
-<!-- description: 使用Limelight偵測與目標距離 -->
+<!-- title: 進階內容 Limelihgt -->
+<!-- description: Limelight -->
 <!-- category: Advance -->
 <!-- tags: FRC8725 -->
-<!-- published time: 2024/03/18 -->
+<!-- published time: 2024/03/23 -->
 
 # Limelight撰寫
 ## Limelight Constants
 * Limelight 相關參數
+
 ```java
 public static final class LimelightConstants {
-	public static final double MOUNT_ANGLE_DEG = 0.0; // Limelight與地面傾斜角度
-	public static final double LENS_HEIGHT_METERS = 0.42; // Limelight與地面高度
-	public static final double GOAL_HEIGHT_METERS = 0.74; // Limelight偵測目標高度
-	public static final double HORIZONTAL_OFFSET_METERS = 0; // 將水平距離歸0參數
-	public static final double VERTICAL_MAX_SPEED = 1.3; // 水平運動最大速度
-	public static final double HORIZONTAL_MAX_SPEED = 2.6; // 旋轉最大速度
-	public static final boolean gyroField = false; // 相對機器方向
+    public static final double MOUNT_ANGLE_DEG = 0.0; // Limelight與地面傾斜角度
+    public static final double LENS_HEIGHT_METERS = 0.42; // Limelight與地面高度
+    public static final double GOAL_HEIGHT_METERS = 0.74; // Limelight偵測目標高度
+    public static final double HORIZONTAL_OFFSET_METERS = 0; // 將水平距離歸0參數
+    public static final double VERTICAL_MAX_SPEED = 1.3; // 水平運動最大速度
+    public static final double HORIZONTAL_MAX_SPEED = 2.6; // 旋轉最大速度
+    public static final boolean gyroField = false; // 相對機器方向
 }
 ```
 
 ## Limelight Subsystem
-1. 於 `src/main/java/frc/robot/subsystems` 創建 `Limelight.java` （有使用IDashboard）
-* [Limelight各項數值](https://docs.limelightvision.io/docs/docs-limelight/apis/complete-networktables-api)
-2. 引入函式庫
+<span>1. 於 `src/main/java/frc/robot/subsystems` 創建 `Limelight.java` （有使用IDashboard）</span>
+
+*   [Limelight各項數值](https://docs.limelightvision.io/docs/docs-limelight/apis/complete-networktables-api)
+
+<span>2. 引入函式庫</span>
+
 ```java
 package frc.robot.subsystems;
 
@@ -35,7 +39,9 @@ import frc.robot.Constants.LimelightCamera;
 import frc.robot.Constants.LimelightConstants;
 import frc.robot.lib.IDashboardProvider;
 ```
-3. 創建Limelight相關數值以及載入IDashBoard
+
+<span>3. 創建Limelight相關數值以及載入IDashBoard</span>
+
 ```java
 public class Limelight extends SubsystemBase implements IDashboardProvider {
     private final NetworkTable table; // 讀取Limelight
@@ -55,66 +61,21 @@ public class Limelight extends SubsystemBase implements IDashboardProvider {
 }
 ```
 
-4. 垂直計算距離
+<span>4. 垂直計算距離</span>
+
 * `a1` `VerticalOffset` 與AprilTag角度
+
 * `a2` `MountAngleDeg` Limelight與地面傾斜角度
+
 * `h1` `LensHeightMeters` Limelight與地板高度
+
 * `h2` `GoalHeightMeters` AprilTag與地板高度
 
-<br>
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mi>tan</mi>
-  <mo data-mjx-texclass="NONE">&#x2061;</mo>
-  <mo stretchy="false">(</mo>
-  <mi>a</mi>
-  <mn>1</mn>
-  <mo>+</mo>
-  <mi>a</mi>
-  <mn>2</mn>
-  <mo stretchy="false">)</mo>
-  <mo>=</mo>
-  <mfrac>
-    <mrow>
-      <mi>h</mi>
-      <mn>2</mn>
-      <mo>&#x2212;</mo>
-      <mi>h</mi>
-      <mn>1</mn>
-    </mrow>
-    <mi>d</mi>
-  </mfrac>
-</math><br>
+![](../public/articleImage/limelight/1.png)
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mo stretchy="false">&#x21D3;</mo>
-</math><br>
+![](../public/articleImage/limelight/2.png)
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mi>d</mi>
-  <mo>=</mo>
-  <mfrac>
-    <mrow>
-      <mi>h</mi>
-      <mn>2</mn>
-      <mo>&#x2212;</mo>
-      <mi>h</mi>
-      <mn>1</mn>
-    </mrow>
-    <mrow>
-      <mi>tan</mi>
-      <mo data-mjx-texclass="NONE">&#x2061;</mo>
-      <mo stretchy="false">(</mo>
-      <mi>a</mi>
-      <mn>1</mn>
-      <mo>+</mo>
-      <mi>a</mi>
-      <mn>2</mn>
-      <mo stretchy="false">)</mo>
-    </mrow>
-  </mfrac>
-</math><br><br>
-
-![](image/articleImage/software_edu/image10.wm.png)
+![](../public/articleImage/software_edu/image10.wm.png)
 
 ```java
 public double getDistanceToGoalVerticalMeters() {
@@ -132,7 +93,8 @@ public double getDistanceToGoalVerticalMeters() {
     return this.distanceToGoalVerticalMeters;
 }
 ```
-5. 計算水平距離（俯視圖）
+
+<span>5. 計算水平距離（俯視圖）</span>
 * `a1` `HorizontalOffset` 與AprilTag夾角
 * `d` `distanceToGoalVerticalMeters` 與AprilTag距離
 * `h` `distanceToGoalHorizontalMeters` 與Limelight水平距離
@@ -151,7 +113,7 @@ public double getDistanceToGoalVerticalMeters() {
   <mi>d</mi>
 </math><br>
 
-![](image/articleImage/software_edu/image11.wm.png)
+![](../public/articleImage/software_edu/image11.wm.png)
 
 ```java
 public double getDistanceToGoalHorizontalMeters(double distanceToGoalVerticalMeters) {
@@ -168,7 +130,8 @@ public double getDistanceToGoalHorizontalMeters(double distanceToGoalVerticalMet
 }
 ```
 
-6. 取得AprilTag ID
+<span>6. 取得AprilTag ID</span>
+
 ```java
 public double getAprilTagId() {
     return this.tid.getDouble(0.0);
@@ -176,8 +139,9 @@ public double getAprilTagId() {
 ```
 
 ## Limelight TrackCommand
-1. 於 `src/main/java/frc/robot/Auto` 創建 `AutoTrackCmd.java`
-2. 引入函式庫
+<span>1. 於 `src/main/java/frc/robot/Auto` 創建 `AutoTrackCmd.java`</span>
+<span>2. 引入函式庫</span>
+
 ```java
 package frc.robot.Auto;
 
@@ -189,7 +153,8 @@ import frc.robot.Constants.LimelightConstants;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.SwerveSubsystem;
 ```
-3. 寫入建構式
+<span>3. 寫入建構式</span>
+
 ```java
 public class AutoTrackCmd extends CommandBase {
 	private final SwerveSubsystem swerveSubsystem;
@@ -207,7 +172,8 @@ public class AutoTrackCmd extends CommandBase {
 	}
 }
 ```
-4. 追蹤目標
+<span>4. 追蹤目標</span>
+
 ```java
 @Override
 public void execute() {
