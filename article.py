@@ -18,11 +18,42 @@ def process(customDirPath, dataDirPath):
     timeFormat = configContent.get('timeFormat', f'%Y/%m/%d')
 
     articleDirPath = os.path.join(customDirPath, 'article')
+
+    outputData = processArticle(articleDirPath, timeFormat)
+
+    outputContent = json.dumps(outputData)
+    outputContent = outputContent.replace('<?=customDirPath?>', customDirPath)
+    with open(os.path.join(dataDirPath, 'article.json'), 'w+', encoding='utf-8') as outputFile:
+        json.dump(outputData, outputFile, ensure_ascii=False, indent=4)
+
+    md5 = hashlib.md5()
+    md5.update(outputContent.encode('utf-8'))
+    md5Value = md5.hexdigest()
+    md5Content = {}
+    try:
+        md5File = open(os.path.join(dataDirPath, 'md5.json'), 'r', encoding='utf-8')
+        md5Content = md5File.read()
+        md5File.close()
+        md5Content = json.loads(md5Content)
+    except: pass
+    md5Content['article'] = md5Value
+    md5Content = json.dumps(md5Content)
+    md5File = open(os.path.join(dataDirPath, 'md5.json'), 'w+', encoding='utf-8')
+    md5File.write(md5Content)
+    md5File.close()
+
+def processArticle(articleDirPath, timeFormat):
     archives = {}
     categories = {}
     tags = {}
     articleDatas = []
     articles = [articlePath for articlePath in os.listdir(articleDirPath) if articlePath.endswith('.md')]
+    
+    for root, dirs, files in os.walk(articleDirPath):
+        for folder in dirs:
+            articleFolderPath = os.path.join(articleDirPath, folder)
+            articles += [os.path.join(folder, articlePath) for articlePath in os.listdir(articleFolderPath) if articlePath.endswith('.md')]
+
     for articleName in articles:
         articlePath = os.path.join(articleDirPath, articleName)
         articleFile = open(articlePath, 'r', encoding='utf-8')
@@ -59,6 +90,7 @@ def process(customDirPath, dataDirPath):
                             if not tags.get(tagName): tags[tagName] = []
                             # tags[tagName].append(articlePath)
         articleData['name'] = '.'.join(articleName.split('.')[0:-1])
+        print(articleData['name'])
         articleData['path'] = articlePath
         articleData['title'] = articleData['title'] if 'title' in articleData else 'Untitled'
         articleData['publishedTime'] = articleData['publishedTime'] if 'publishedTime' in articleData else datetime.today().strftime(timeFormat)
@@ -76,27 +108,8 @@ def process(customDirPath, dataDirPath):
         'tags': tags, 
         'articleDatas': articleDatas
     }
-    outputContent = json.dumps(outputData)
-    outputContent = outputContent.replace('<?=customDirPath?>', customDirPath)
-    outputFile = open(os.path.join(dataDirPath, 'article.json'), 'w+', encoding='utf-8')
-    outputFile.write(outputContent)
-    outputFile.close()
 
-    md5 = hashlib.md5()
-    md5.update(outputContent.encode('utf-8'))
-    md5Value = md5.hexdigest()
-    md5Content = {}
-    try:
-        md5File = open(os.path.join(dataDirPath, 'md5.json'), 'r', encoding='utf-8')
-        md5Content = md5File.read()
-        md5File.close()
-        md5Content = json.loads(md5Content)
-    except: pass
-    md5Content['article'] = md5Value
-    md5Content = json.dumps(md5Content)
-    md5File = open(os.path.join(dataDirPath, 'md5.json'), 'w+', encoding='utf-8')
-    md5File.write(md5Content)
-    md5File.close()
+    return outputData
 
 if __name__ == '__main__':
     if len(os.sys.argv) > 1:

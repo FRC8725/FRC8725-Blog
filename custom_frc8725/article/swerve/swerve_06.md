@@ -106,4 +106,4 @@ public SwerveModulePosition getPosition() {
 }
 ```
 
-<br><a next_article="swerve_07">>> 下一章 <<</a>
+<br><a class="articleSwitcher" next_article="swerve\swerve_07">>> 下一章 <<</a>

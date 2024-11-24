@@ -1,7 +1,7 @@
 <!-- title: FRC8725 線路除錯 -->
 <!-- description: 軟體易錯事項 -->
 <!-- category: Electronics -->
-<!-- tags: Programming -->
+<!-- tags: Electronics -->
 <!-- published time: 2024/08/12 -->
 
 # 線路相關

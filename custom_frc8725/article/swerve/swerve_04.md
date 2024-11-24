@@ -36,4 +36,4 @@ $$Radians = Degrees * \frac{\pi}{180}$$
 * RPM(每分鐘轉速) to m/s(公尺每秒)<br><br>
 $$Velocity = 2 * wheelRadius * \pi * \frac{RPM}{60}$$
 
-<br><a next_article="swerve_05">>> 下一章 <<</a>
+<br><a class="articleSwitcher" next_article="swerve\swerve_05">>> 下一章 <<</a>

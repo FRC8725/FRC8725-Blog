@@ -123,4 +123,4 @@ public final class DeviceId {
 }
 ```
 
-<br><a next_article="swerve_06">>> 下一章 <<</a>
+<br><a class="articleSwitcher" next_article="swerve\swerve_06">>> 下一章 <<</a>
