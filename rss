@@ -12,7 +12,7 @@
 	<atom:link href="https://frc8725.github.io/FRC8725-Blog//rss" rel="self" type="application/rss+xml" />
 	<link>https://frc8725.github.io/FRC8725-Blog/</link>
 	<description>KEEP GOING & DREAM IT</description>
-	<lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0800</lastBuildDate>
+	<lastBuildDate>Fri, 03 Jan 2025 00:00:00 +0800</lastBuildDate>
 	<language>zh-TW</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -45,6 +45,6 @@
 	<item><title>Swerve 相關函式說明</title><link>https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=swerve_04</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Thu, 21 Nov 2024 00:00:00 +0800</pubDate><category><![CDATA[Swerve]]></category><guid isPermaLink="true">https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=swerve_04</guid><description><![CDATA[控制 Swerve 底盤]]></description></item>
 	<item><title>Swerve 常數設定</title><link>https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=swerve_05</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Thu, 21 Nov 2024 00:00:00 +0800</pubDate><category><![CDATA[Swerve]]></category><guid isPermaLink="true">https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=swerve_05</guid><description><![CDATA[控制 Swerve 底盤]]></description></item>
 	<item><title>Swerve 角塊撰寫</title><link>https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=swerve_06</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Thu, 21 Nov 2024 00:00:00 +0800</pubDate><category><![CDATA[Swerve]]></category><guid isPermaLink="true">https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=swerve_06</guid><description><![CDATA[控制 Swerve 底盤]]></description></item>
-	<item><title>軟體培訓教學 - 安裝環境與刷機</title><link>https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=basic_enviro_edu</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Sat, 23 Nov 2024 00:00:00 +0800</pubDate><category><![CDATA[Basic]]></category><guid isPermaLink="true">https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=basic_enviro_edu</guid><description><![CDATA[撰寫程式前的前置作業]]></description></item>
+	<item><title>軟體培訓教學 - 安裝環境與刷機</title><link>https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=basic_enviro_edu</link><dc:creator><![CDATA[FRC8725 Misty Panther]]></dc:creator><pubDate>Fri, 03 Jan 2025 00:00:00 +0800</pubDate><category><![CDATA[Basic]]></category><guid isPermaLink="true">https://frc8725.github.io/FRC8725-Blog/?page=article&amp;article=basic_enviro_edu</guid><description><![CDATA[撰寫程式前的前置作業]]></description></item>
 	</channel>
 </rss>
