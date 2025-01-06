@@ -4,7 +4,7 @@
 <!-- tags: Reefscape -->
 <!-- published time: 2025/01/06 -->
 
-# 2024 Reefscape Game Rules
+# 2025 Reefscape Game Rules
 ## 機器人限制(長度皆為平放時)
 1. 高度:1060mm /展開後沒有限制(R104)
 2. 周長:3040mm /延伸最多450mm (R104 G415)
@@ -35,8 +35,6 @@
 9. 在比賽的最後 20 秒內，機器人不得直接或間接通過得分元素接觸與對方籠子(G428 嚴重犯規)
 10. 駕駛團隊成員不得故意使用Game piece來幫助自己或阻礙對手完成場地元素的挑戰(G432 嚴重犯規)
 
-
-
 ## 計分方式(自動) (6.5.4)
  1. CORAL放入槽位L1得3分
  2. CORAL放入L2樹枝得4分
@@ -56,12 +54,16 @@
  7. 停留得2分
  8. 懸挂在較高的鏈條6分
  9. 懸挂在較低的鏈條12分
+
 ## 合作得分
 1. 雙方聯盟各放進兩個PROCESSR得1分CP
+
 ## RP得分
-1. 我方所有機器Enable離開聯盟綫并且放入一個CORAL得1RP
-2. 每層至少得分 5 個CORAL或如果達成合作，至少有 5 個CORAL分布在 3 個不同的層次
-3. BARGE分數達14分得1RP
-4. win得3RP
-5. Tie得1RP
+1. 我方所有機器Enable離開聯盟綫并且放入一個CORAL得1RP(AUTO)
+2. 每層至少得分 5 個CORAL得1RP
+3. 有 5 個CORAL分布在 3 個不同的層次得1RP
+4. BARGE分數達14分得1RP
+5. win得3RP
+6. Tie得1RP
+
 ![](image/articleImage/2025_gm/points.png)

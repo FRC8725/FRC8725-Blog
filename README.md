@@ -1,6 +1,6 @@
 Welcome to FRC8725-blog 
 ====
-> 2024 &copy; FRC8725
+> 2025 &copy; FRC8725
 
 ![license MIT](https://img.shields.io/badge/license-MIT-blue)
 
