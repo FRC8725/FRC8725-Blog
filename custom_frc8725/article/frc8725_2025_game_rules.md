@@ -2,7 +2,7 @@
 <!-- description: 2025賽季規則整理 -->
 <!-- category: Rules-->
 <!-- tags: Reefscape -->
-<!-- published time: 2024/01/08 -->
+<!-- published time: 2025/01/06 -->
 
 # 2024 Reefscape Game Rules
 ## 機器人限制(長度皆為平放時)
