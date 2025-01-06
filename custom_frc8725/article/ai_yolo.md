@@ -1,7 +1,7 @@
 <!-- title: Yolo模型訓練與物件辨識 -->
 <!-- description: 使用Yolov5、v8訓練模型以及應用 -->
 <!-- category: Artificial_Intelligence -->
-<!-- tags: Artificial_Intelligence -->
+<!-- tags: Vision -->
 <!-- published time: 2024/09/28 -->
 
 # YOLO模型是什麼?

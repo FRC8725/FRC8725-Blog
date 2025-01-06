@@ -65,6 +65,16 @@ tag:
       bright: '112, 140, 188'
       dark: '79, 98, 131'
 
+  - name: Crescendo
+    color:
+      bright: '64, 178, 123'
+      dark: '64, 178, 123'
+
+  - name: Reefscape
+    color:
+      bright: '0, 158, 212'
+      dark: '0, 130, 174'
+
 category:
   # - name: Programming
   #   color:
