@@ -38,29 +38,24 @@
 
 
 ## 計分方式(自動) (6.5.4)
-### CORAL
  1. CORAL放入槽位L1得3分
  2. CORAL放入L2樹枝得4分
  3. CORAL放入L3樹枝得6分
  4. CORAL放入L4樹枝得7分
-### ALGAE
- 1. ALGAE放入PROCESSOR得6分
- 2. ALGAE放入NET得4分
-### LEAVE
- 1. 離開聯盟綫得3分
+ 5. ALGAE放入PROCESSOR得6分
+ 6. ALGAE放入NET得4分
+ 7. 離開聯盟綫得3分
+ 
 ## 計分方式(手動)
-### CORAL
  1. CORAL放入槽位L1得2分
  2. CORAL放入L2樹枝得3分
  3. CORAL放入L3樹枝得4分
  4. CORAL放入L4樹枝得5分
-### ALGAE
- 1. ALGAE放入PROCESSOR得6分
- 2. ALGAE放入NET得4分
-### BARGE
- 1. 停留得2分
- 2. 懸挂在較高的鏈條6分
- 3. 懸挂在較低的鏈條12分
+ 5. ALGAE放入PROCESSOR得6分
+ 6. ALGAE放入NET得4分
+ 7. 停留得2分
+ 8. 懸挂在較高的鏈條6分
+ 9. 懸挂在較低的鏈條12分
 ## 合作得分
 1. 雙方聯盟各放進兩個PROCESSR得1分CP
 ## RP得分
