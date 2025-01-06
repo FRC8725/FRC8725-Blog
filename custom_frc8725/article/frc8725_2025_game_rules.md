@@ -47,29 +47,29 @@
 2. 當任一臺機器人自PIN發起起始點移動超過 6 英尺時,PIN 計數會暫停。若PIN尚未結束,但雙方機器人再次回到距PIN發起起始點 6 英尺範圍內，則 PIN 計數恢復計時。
 
 ## 計分方式(自動) (6.5.4)
-### CORAL
+#### CORAL
  1. CORAL 放入槽位 L1 得 3 分
  2. CORAL 放入 L2 樹枝得 4 分
  3. CORAL 放入 L3 樹枝得 6 分
  4. CORAL 放入 L4 樹枝得 7 分
-### ALGAE
+#### ALGAE
  1. ALGAE 放入 對方的PROCESSOR 得 6 分
  2. ALGAE 放入 NET得 4 分
-### LEAVE
+#### LEAVE
  1. 離開聯盟綫得 3 分
  
 ## 計分方式(手動)
-### CORAL
+#### CORAL
  1. CORAL 放入槽位 L1 得 2 分
  2. CORAL 放入 L2 樹枝得 3 分
  3. CORAL 放入 L3 樹枝得 4 分
  4. CORAL 放入 L4 樹枝得 5 分
- ### ALGAE
+ #### ALGAE
  1. ALGAE 放入 對方的PROCESSOR 得 6 分
  2. ALGAE 放入 NET 得 4 分
- ### HUMANPLAYER
+ #### HUMANPLAYER
  1. 將ALGAE投進NET得4分
- ### BARGE
+ #### BARGE
  1. 停留得 2 分
  2. 懸挂在較高的鏈條 6 分
  3. 懸挂在較低的鏈條 12 分
