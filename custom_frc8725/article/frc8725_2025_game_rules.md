@@ -38,26 +38,26 @@
 
 
 ## 計分方式(自動) (6.5.4)
-1. CORAL
+### CORAL
  1. CORAL放入槽位L1得3分
  2. CORAL放入L2樹枝得4分
  3. CORAL放入L3樹枝得6分
  4. CORAL放入L4樹枝得7分
-2. ALGAE
+### ALGAE
  1. ALGAE放入PROCESSOR得6分
  2. ALGAE放入NET得4分
-3. LEAVE
+### LEAVE
  1. 離開聯盟綫得3分
 ## 計分方式(手動)
-1. CORAL
+### CORAL
  1. CORAL放入槽位L1得2分
  2. CORAL放入L2樹枝得3分
  3. CORAL放入L3樹枝得4分
  4. CORAL放入L4樹枝得5分
-2. ALGAE
+### ALGAE
  1. ALGAE放入PROCESSOR得6分
  2. ALGAE放入NET得4分
-3. BARGE
+### BARGE
  1. 停留得2分
  2. 懸挂在較高的鏈條6分
  3. 懸挂在較低的鏈條12分
