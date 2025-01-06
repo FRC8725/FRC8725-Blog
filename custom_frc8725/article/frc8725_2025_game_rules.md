@@ -15,7 +15,7 @@
 ## Game piece
 1. CORAL PVC 內徑102mm 外徑110mm 厚度8mm 重量 0.5 - 0.8 kg
 ![](image/articleImage/2025_gm/CORAL.png)
-2. ALGAE 橡膠 直徑41mm ± 12mm
+2. ALGAE 橡膠 直徑41cm ± 12cm
 ![](image/articleImage/2025_gm/ALGAE.png)
 
 ## 限制
