@@ -20,8 +20,8 @@
 
 ## 限制
 1. 每次只能控制一個 CORAL 和一個 ALGAE，並且不得解除對手得分。(G409 G410)
-2. 僅能在 REEF ZONE 內投擲珊瑚，且不得將 ALGAE 放到對方的 REEF 區域。(G411)
-3. 機器人不得在其 BUMPERS（防撞區） 未部分進入 REEF ZONE（珊瑚區） 時投擲 CORAL（珊瑚）。(G412)
+2. 僅能在 REEF ZONE 內投擲CORAL，且不得將 ALGAE 放到對方的 REEF 區域。(G411)
+3. 機器人不得在其 BUMPERS 未部分進入 REEF ZONE 時投擲 CORAL。(G412)
 
 ## 特殊違規事項
 1. 禁止故意將ALGAE放置在對手的REEF上(G411 一次嚴重犯規+黃牌) 
