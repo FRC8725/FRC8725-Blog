@@ -1,6 +1,7 @@
 {
     "archives": {
-        "2024": []
+        "2024": [],
+        "2025": []
     },
     "categories": {
         "Artificial_Intelligence": [],
@@ -330,6 +331,14 @@
             "path": "custom_frc8725\\article\\swerve\\swerve_06.md",
             "readingTime": "3 minute",
             "archive": "2024"
+        },
+        {
+            "name": "frc8725_2025_game_rules",
+            "path": "custom_frc8725\\article\\frc8725_2025_game_rules.md",
+            "title": "Untitled",
+            "publishedTime": "2025/01/06",
+            "readingTime": "0 minute",
+            "archive": "2025"
         }
     ]
 }
