@@ -5,4 +5,3 @@
 <!-- published time: 2025/01/06 -->
 
 # 2025 Reefscape Game Rules
-![](image/articleImage/2025_gm/guaiguai.png)
